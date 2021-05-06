@@ -34,6 +34,14 @@ namespace WypożyczalniaVideo
             this.SearchborrowTB = new System.Windows.Forms.TextBox();
             this.SearchTypeCB = new System.Windows.Forms.ComboBox();
             this.SearchBorrowBTN = new System.Windows.Forms.Button();
+            this.BookBorrowLB = new System.Windows.Forms.Label();
+            this.FirstnameBorrowLB = new System.Windows.Forms.Label();
+            this.LastnameBorrowLB = new System.Windows.Forms.Label();
+            this.TitleBorrowTB = new System.Windows.Forms.TextBox();
+            this.FirstnameBorrowTB = new System.Windows.Forms.TextBox();
+            this.LastnameBorrowTB = new System.Windows.Forms.TextBox();
+            this.BorrowBTN = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBorrowDG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +56,7 @@ namespace WypożyczalniaVideo
             // Wyszukajlb
             // 
             this.Wyszukajlb.AutoSize = true;
-            this.Wyszukajlb.Location = new System.Drawing.Point(359, 33);
+            this.Wyszukajlb.Location = new System.Drawing.Point(390, 81);
             this.Wyszukajlb.Name = "Wyszukajlb";
             this.Wyszukajlb.Size = new System.Drawing.Size(76, 15);
             this.Wyszukajlb.TabIndex = 1;
@@ -56,7 +64,7 @@ namespace WypożyczalniaVideo
             // 
             // SearchborrowTB
             // 
-            this.SearchborrowTB.Location = new System.Drawing.Point(558, 30);
+            this.SearchborrowTB.Location = new System.Drawing.Point(589, 78);
             this.SearchborrowTB.Name = "SearchborrowTB";
             this.SearchborrowTB.Size = new System.Drawing.Size(171, 23);
             this.SearchborrowTB.TabIndex = 2;
@@ -67,14 +75,14 @@ namespace WypożyczalniaVideo
             this.SearchTypeCB.Items.AddRange(new object[] {
             "Kategoria",
             "Tytuł"});
-            this.SearchTypeCB.Location = new System.Drawing.Point(441, 30);
+            this.SearchTypeCB.Location = new System.Drawing.Point(472, 78);
             this.SearchTypeCB.Name = "SearchTypeCB";
             this.SearchTypeCB.Size = new System.Drawing.Size(111, 23);
             this.SearchTypeCB.TabIndex = 3;
             // 
             // SearchBorrowBTN
             // 
-            this.SearchBorrowBTN.Location = new System.Drawing.Point(472, 71);
+            this.SearchBorrowBTN.Location = new System.Drawing.Point(503, 119);
             this.SearchBorrowBTN.Name = "SearchBorrowBTN";
             this.SearchBorrowBTN.Size = new System.Drawing.Size(129, 33);
             this.SearchBorrowBTN.TabIndex = 5;
@@ -82,14 +90,87 @@ namespace WypożyczalniaVideo
             this.SearchBorrowBTN.UseVisualStyleBackColor = true;
             this.SearchBorrowBTN.Click += new System.EventHandler(this.button2_Click);
             // 
+            // BookBorrowLB
+            // 
+            this.BookBorrowLB.AutoSize = true;
+            this.BookBorrowLB.Location = new System.Drawing.Point(431, 214);
+            this.BookBorrowLB.Name = "BookBorrowLB";
+            this.BookBorrowLB.Size = new System.Drawing.Size(35, 15);
+            this.BookBorrowLB.TabIndex = 1;
+            this.BookBorrowLB.Text = "Tytuł:";
+            // 
+            // FirstnameBorrowLB
+            // 
+            this.FirstnameBorrowLB.AutoSize = true;
+            this.FirstnameBorrowLB.Location = new System.Drawing.Point(431, 250);
+            this.FirstnameBorrowLB.Name = "FirstnameBorrowLB";
+            this.FirstnameBorrowLB.Size = new System.Drawing.Size(33, 15);
+            this.FirstnameBorrowLB.TabIndex = 1;
+            this.FirstnameBorrowLB.Text = "Imię:";
+            // 
+            // LastnameBorrowLB
+            // 
+            this.LastnameBorrowLB.AutoSize = true;
+            this.LastnameBorrowLB.Location = new System.Drawing.Point(431, 283);
+            this.LastnameBorrowLB.Name = "LastnameBorrowLB";
+            this.LastnameBorrowLB.Size = new System.Drawing.Size(60, 15);
+            this.LastnameBorrowLB.TabIndex = 1;
+            this.LastnameBorrowLB.Text = "Nazwisko:";
+            // 
+            // TitleBorrowTB
+            // 
+            this.TitleBorrowTB.Location = new System.Drawing.Point(503, 211);
+            this.TitleBorrowTB.Name = "TitleBorrowTB";
+            this.TitleBorrowTB.Size = new System.Drawing.Size(171, 23);
+            this.TitleBorrowTB.TabIndex = 2;
+            // 
+            // FirstnameBorrowTB
+            // 
+            this.FirstnameBorrowTB.Location = new System.Drawing.Point(503, 247);
+            this.FirstnameBorrowTB.Name = "FirstnameBorrowTB";
+            this.FirstnameBorrowTB.Size = new System.Drawing.Size(171, 23);
+            this.FirstnameBorrowTB.TabIndex = 2;
+            // 
+            // LastnameBorrowTB
+            // 
+            this.LastnameBorrowTB.Location = new System.Drawing.Point(503, 280);
+            this.LastnameBorrowTB.Name = "LastnameBorrowTB";
+            this.LastnameBorrowTB.Size = new System.Drawing.Size(171, 23);
+            this.LastnameBorrowTB.TabIndex = 2;
+            // 
+            // BorrowBTN
+            // 
+            this.BorrowBTN.Location = new System.Drawing.Point(0, 0);
+            this.BorrowBTN.Name = "BorrowBTN";
+            this.BorrowBTN.Size = new System.Drawing.Size(75, 23);
+            this.BorrowBTN.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(488, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 51);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Wypożycz";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BorrowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BorrowBTN);
             this.Controls.Add(this.SearchBorrowBTN);
             this.Controls.Add(this.SearchTypeCB);
+            this.Controls.Add(this.LastnameBorrowTB);
+            this.Controls.Add(this.FirstnameBorrowTB);
+            this.Controls.Add(this.TitleBorrowTB);
             this.Controls.Add(this.SearchborrowTB);
+            this.Controls.Add(this.LastnameBorrowLB);
+            this.Controls.Add(this.FirstnameBorrowLB);
+            this.Controls.Add(this.BookBorrowLB);
             this.Controls.Add(this.Wyszukajlb);
             this.Controls.Add(this.SearchBorrowDG);
             this.Name = "BorrowForm";
@@ -107,6 +188,13 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.TextBox SearchborrowTB;
         private System.Windows.Forms.ComboBox SearchTypeCB;
         private System.Windows.Forms.Button SearchBorrowBTN;
-        
+        private System.Windows.Forms.Label BookBorrowLB;
+        private System.Windows.Forms.Label FirstnameBorrowLB;
+        private System.Windows.Forms.Label LastnameBorrowLB;
+        private System.Windows.Forms.TextBox TitleBorrowTB;
+        private System.Windows.Forms.TextBox FirstnameBorrowTB;
+        private System.Windows.Forms.TextBox LastnameBorrowTB;
+        private System.Windows.Forms.Button BorrowBTN;
+        private System.Windows.Forms.Button button1;
     }
 }
