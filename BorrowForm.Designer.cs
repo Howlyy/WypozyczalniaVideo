@@ -40,7 +40,6 @@ namespace WypożyczalniaVideo
             this.TitleBorrowTB = new System.Windows.Forms.TextBox();
             this.FirstnameBorrowTB = new System.Windows.Forms.TextBox();
             this.LastnameBorrowTB = new System.Windows.Forms.TextBox();
-            this.BorrowBTN = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBorrowDG)).BeginInit();
             this.SuspendLayout();
@@ -138,13 +137,6 @@ namespace WypożyczalniaVideo
             this.LastnameBorrowTB.Size = new System.Drawing.Size(171, 23);
             this.LastnameBorrowTB.TabIndex = 2;
             // 
-            // BorrowBTN
-            // 
-            this.BorrowBTN.Location = new System.Drawing.Point(0, 0);
-            this.BorrowBTN.Name = "BorrowBTN";
-            this.BorrowBTN.Size = new System.Drawing.Size(75, 23);
-            this.BorrowBTN.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(488, 340);
@@ -161,7 +153,6 @@ namespace WypożyczalniaVideo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.BorrowBTN);
             this.Controls.Add(this.SearchBorrowBTN);
             this.Controls.Add(this.SearchTypeCB);
             this.Controls.Add(this.LastnameBorrowTB);
@@ -194,7 +185,6 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.TextBox TitleBorrowTB;
         private System.Windows.Forms.TextBox FirstnameBorrowTB;
         private System.Windows.Forms.TextBox LastnameBorrowTB;
-        private System.Windows.Forms.Button BorrowBTN;
         private System.Windows.Forms.Button button1;
     }
 }

@@ -8,9 +8,12 @@ namespace WypożyczalniaVideo
 {
     public partial class LoginForm : Form
     {
+        SqlConnection db_con;
         public LoginForm()
         {
             InitializeComponent();
+
+            db_con =new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
         private void LoginBT_Click(object sender, EventArgs e)
@@ -19,9 +22,9 @@ namespace WypożyczalniaVideo
             string username = UsernameTB.Text;
             string password = PasswordTB.Text;
 
-            var login_result = login_check(username, password);
+            int login_result = login_check(username, password);
 
-                if (login_result == "1")
+                if (login_result > 0)
                 {
                     this.Hide();
                     new MainForm().Show();
@@ -37,14 +40,8 @@ namespace WypożyczalniaVideo
             
         }
 
-        private string login_check(string username, string password)
+        private int login_check(string username, string password)
         {
-            string config = ConfigurationManager.ConnectionStrings["Video"].ConnectionString; // chwilowo - napisać za pomocą mothody
-
-
-            SqlConnection db_con = new SqlConnection(config);
-
-            SqlDataReader data_reader = null;
 
             db_con.Open();
 
@@ -58,11 +55,11 @@ namespace WypożyczalniaVideo
 
             cmd_log.ExecuteNonQuery();
 
-            var result = cmd_log.Parameters["@result"].Value.ToString();
+            int LoggedUserId = (int)cmd_log.Parameters["@result"].Value; //rzutowanie typu danych (żeby nie zapomnieć nazwy)
 
             db_con.Close();
 
-            return result;
+            return LoggedUserId;
         }
     }
 }

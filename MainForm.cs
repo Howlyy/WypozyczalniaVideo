@@ -15,14 +15,21 @@ namespace WypożyczalniaVideo
             InitializeComponent();
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-           
-        }
+        
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            
+        }
+
+        private void BorrowCMS_Opening(object sender, CancelEventArgs e)
+        {
             new BorrowForm().Show();
+        }
+
+        private void ReturnCMS_Opening(object sender, CancelEventArgs e)
+        {
+            new ReturnForm().Show();
         }
     }  
 }

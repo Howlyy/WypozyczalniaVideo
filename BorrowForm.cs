@@ -12,29 +12,22 @@ namespace WypożyczalniaVideo
 {
     public partial class BorrowForm : Form
     {
+        SqlConnection db_con;
+
         public BorrowForm()
         {
             InitializeComponent();
+            db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string config = ConfigurationManager.ConnectionStrings["Video"].ConnectionString; // chwilowo - napisać za pomocą mothody
+            
 
             DataTable dt = new DataTable();
 
-            SqlConnection db_con = new SqlConnection(config);
- 
-
             db_con.Open();
 
-            //SqlCommand cmd_bor = new SqlCommand("Select * from dbo.videocassettes", db_con);
-
-            
-
-            
-
-            
 
             if (SearchTypeCB.Text == "Kategoria")
             {
@@ -84,10 +77,6 @@ namespace WypożyczalniaVideo
             string client_firstname = FirstnameBorrowTB.Text;
             string client_lastname = LastnameBorrowTB.Text;
 
-            string config = ConfigurationManager.ConnectionStrings["Video"].ConnectionString; // chwilowo - napisać za pomocą mothody
-
-
-            SqlConnection db_con = new SqlConnection(config);
 
             db_con.Open();
 
@@ -98,13 +87,18 @@ namespace WypożyczalniaVideo
             cmd_borrow.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = TitleBorrowTB.Text;
             cmd_borrow.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = FirstnameBorrowTB.Text;
             cmd_borrow.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = LastnameBorrowTB.Text;
+            cmd_borrow.Parameters.AddWithValue("@id_login", SqlDbType.NVarChar).Value = WypozyczalniaVideo.LoggedUserId;
             cmd_borrow.Parameters.AddWithValue("@result", SqlDbType.NVarChar).Direction = ParameterDirection.Output;
 
             cmd_borrow.ExecuteNonQuery();
 
-            var result = cmd_borrow.Parameters["@result"].Value.ToString();
+            string result = cmd_borrow.Parameters["@result"].Value.ToString();
 
             db_con.Close();
+            //
+            //Problem z FK na Loginach po zmianie kluczy w bazie (dropnietą i stworzona na nowo Borrows z nowymi kolumnami - Sprawdzić)
+            //
+            //
 
             if(result == "Borrowed")
             {
@@ -112,7 +106,7 @@ namespace WypożyczalniaVideo
             }
             else
             {
-                MessageBox.Show("Nie wypożyczono! Sprawdz dane");
+                MessageBox.Show("Nie wypożyczono! Sprawdz dane!");
             }
             
 
