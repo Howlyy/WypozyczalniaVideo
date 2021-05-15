@@ -78,29 +78,9 @@ namespace WypożyczalniaVideo
             string client_lastname = LastnameBorrowTB.Text;
 
 
-            db_con.Open();
+            int book_borrow_result = book_borrow(book_title, client_firstname, client_lastname);
 
-
-            SqlCommand cmd_borrow = new SqlCommand("book_borrow", db_con);
-            cmd_borrow.CommandType = CommandType.StoredProcedure;
-
-            cmd_borrow.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = TitleBorrowTB.Text;
-            cmd_borrow.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = FirstnameBorrowTB.Text;
-            cmd_borrow.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = LastnameBorrowTB.Text;
-            cmd_borrow.Parameters.AddWithValue("@id_login", SqlDbType.NVarChar).Value = WypozyczalniaVideo.LoggedUserId;
-            cmd_borrow.Parameters.AddWithValue("@result", SqlDbType.NVarChar).Direction = ParameterDirection.Output;
-
-            cmd_borrow.ExecuteNonQuery();
-
-            string result = cmd_borrow.Parameters["@result"].Value.ToString();
-
-            db_con.Close();
-            //
-            //Problem z FK na Loginach po zmianie kluczy w bazie (dropnietą i stworzona na nowo Borrows z nowymi kolumnami - Sprawdzić)
-            //
-            //
-
-            if(result == "Borrowed")
+            if(book_borrow_result == 1)
             {
                 MessageBox.Show("Wypozyczono!");
             }
@@ -111,5 +91,31 @@ namespace WypożyczalniaVideo
             
 
         }
+
+        private int book_borrow(string video_title, string client_firstname, string client_lastname)
+        {
+           
+            db_con.Open();
+
+
+            SqlCommand cmd_borrow = new SqlCommand("video_borrow", db_con);
+            cmd_borrow.CommandType = CommandType.StoredProcedure;
+
+            cmd_borrow.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = video_title;
+            cmd_borrow.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = client_firstname;
+            cmd_borrow.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = client_lastname;
+            cmd_borrow.Parameters.AddWithValue("@id_login", SqlDbType.Int).Value = WypozyczalniaVideo.LoggerUserId;
+            cmd_borrow.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            cmd_borrow.ExecuteNonQuery();
+
+            int borrow_result = (int)cmd_borrow.Parameters["@result"].Value;
+
+            db_con.Close();
+
+            return borrow_result;
+        }
+
+        
     }
 }

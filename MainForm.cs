@@ -31,5 +31,10 @@ namespace WypożyczalniaVideo
         {
             new ReturnForm().Show();
         }
+
+        private void ModVideoCMS_Opening(object sender, CancelEventArgs e)
+        {
+            new VideoModForm().Show();
+        }
     }  
 }

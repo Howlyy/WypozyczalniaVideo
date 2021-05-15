@@ -49,8 +49,8 @@ namespace WypożyczalniaVideo
 
             cmd_log.CommandType = System.Data.CommandType.StoredProcedure;
 
-            cmd_log.Parameters.AddWithValue("@username", SqlDbType.NVarChar).Value = UsernameTB.Text;
-            cmd_log.Parameters.AddWithValue("@password", SqlDbType.NVarChar).Value = PasswordTB.Text;
+            cmd_log.Parameters.AddWithValue("@username", SqlDbType.NVarChar).Value = username;
+            cmd_log.Parameters.AddWithValue("@password", SqlDbType.NVarChar).Value = password;
             cmd_log.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             cmd_log.ExecuteNonQuery();

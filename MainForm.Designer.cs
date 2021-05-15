@@ -37,6 +37,8 @@ namespace WypożyczalniaVideo
             this.BorrowCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.VideoReturnTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.ReturnCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ModVideoCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.VideoModTMS = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.VideoBorrowCMS.SuspendLayout();
             this.SuspendLayout();
@@ -62,10 +64,10 @@ namespace WypożyczalniaVideo
             // 
             this.VideoBorrowCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.VideoBorrowTSM,
-            this.VideoReturnTSM});
+            this.VideoReturnTSM,
+            this.VideoModTMS});
             this.VideoBorrowCMS.Name = "VideoBorrowCMS";
-            this.VideoBorrowCMS.OwnerItem = this.VideoTSM;
-            this.VideoBorrowCMS.Size = new System.Drawing.Size(128, 48);
+            this.VideoBorrowCMS.Size = new System.Drawing.Size(172, 70);
             this.VideoBorrowCMS.Text = "Wypożycz";
             this.VideoBorrowCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
@@ -73,7 +75,7 @@ namespace WypożyczalniaVideo
             // 
             this.VideoBorrowTSM.DropDown = this.BorrowCMS;
             this.VideoBorrowTSM.Name = "VideoBorrowTSM";
-            this.VideoBorrowTSM.Size = new System.Drawing.Size(127, 22);
+            this.VideoBorrowTSM.Size = new System.Drawing.Size(171, 22);
             this.VideoBorrowTSM.Text = "Wypożycz";
             // 
             // BorrowCMS
@@ -88,7 +90,7 @@ namespace WypożyczalniaVideo
             // 
             this.VideoReturnTSM.DropDown = this.ReturnCMS;
             this.VideoReturnTSM.Name = "VideoReturnTSM";
-            this.VideoReturnTSM.Size = new System.Drawing.Size(127, 22);
+            this.VideoReturnTSM.Size = new System.Drawing.Size(171, 22);
             this.VideoReturnTSM.Text = "Zwróć";
             // 
             // ReturnCMS
@@ -97,6 +99,17 @@ namespace WypożyczalniaVideo
             this.ReturnCMS.Size = new System.Drawing.Size(61, 4);
             this.ReturnCMS.Text = "Zwróć";
             this.ReturnCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ReturnCMS_Opening);
+            // 
+            // ModVideoCMS
+            // 
+            this.ModVideoCMS.Name = "ModVideoCMS";
+            this.ModVideoCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ModVideoCMS_Opening);
+            // 
+            // VideoModTMS
+            // 
+            this.VideoModTMS.Name = "VideoModTMS";
+            this.VideoModTMS.Size = new System.Drawing.Size(171, 22);
+            this.VideoModTMS.Text = "Modyfikacja video";
             // 
             // MainForm
             // 
@@ -125,5 +138,7 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.ContextMenuStrip VideoBorrowCMS;
         private System.Windows.Forms.ToolStripMenuItem VideoBorrowTSM;
         private System.Windows.Forms.ToolStripMenuItem VideoReturnTSM;
+        private System.Windows.Forms.ContextMenuStrip ModVideoCMS;
+        private System.Windows.Forms.ToolStripMenuItem VideoModTMS;
     }
 }
