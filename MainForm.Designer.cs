@@ -37,8 +37,10 @@ namespace WypożyczalniaVideo
             this.BorrowCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.VideoReturnTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.ReturnCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ModVideoCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.VideoModTMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModVideoCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ClientTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.VideoBorrowCMS.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +48,8 @@ namespace WypożyczalniaVideo
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.VideoTSM});
+            this.VideoTSM,
+            this.ClientTSM});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(984, 24);
@@ -67,8 +70,8 @@ namespace WypożyczalniaVideo
             this.VideoReturnTSM,
             this.VideoModTMS});
             this.VideoBorrowCMS.Name = "VideoBorrowCMS";
+            this.VideoBorrowCMS.OwnerItem = this.VideoTSM;
             this.VideoBorrowCMS.Size = new System.Drawing.Size(172, 70);
-            this.VideoBorrowCMS.Text = "Wypożycz";
             this.VideoBorrowCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // VideoBorrowTSM
@@ -96,20 +99,39 @@ namespace WypożyczalniaVideo
             // ReturnCMS
             // 
             this.ReturnCMS.Name = "ReturnCMS";
+            this.ReturnCMS.OwnerItem = this.VideoReturnTSM;
             this.ReturnCMS.Size = new System.Drawing.Size(61, 4);
             this.ReturnCMS.Text = "Zwróć";
             this.ReturnCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ReturnCMS_Opening);
             // 
-            // ModVideoCMS
-            // 
-            this.ModVideoCMS.Name = "ModVideoCMS";
-            this.ModVideoCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ModVideoCMS_Opening);
-            // 
             // VideoModTMS
             // 
+            this.VideoModTMS.DropDown = this.ModVideoCMS;
             this.VideoModTMS.Name = "VideoModTMS";
             this.VideoModTMS.Size = new System.Drawing.Size(171, 22);
             this.VideoModTMS.Text = "Modyfikacja video";
+            // 
+            // ModVideoCMS
+            // 
+            this.ModVideoCMS.Name = "ModVideoCMS";
+            this.ModVideoCMS.OwnerItem = this.VideoModTMS;
+            this.ModVideoCMS.Size = new System.Drawing.Size(61, 4);
+            this.ModVideoCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ModVideoCMS_Opening);
+            // 
+            // ClientTSM
+            // 
+            this.ClientTSM.DropDown = this.ClientCMS;
+            this.ClientTSM.Name = "ClientTSM";
+            this.ClientTSM.Size = new System.Drawing.Size(83, 20);
+            this.ClientTSM.Text = "Kontrahenci";
+            // 
+            // ClientCMS
+            // 
+            this.ClientCMS.Name = "ClientCMS";
+            this.ClientCMS.OwnerItem = this.ClientTSM;
+            this.ClientCMS.Size = new System.Drawing.Size(61, 4);
+            this.ClientCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ClientCMS_Opening);
+            this.ClientCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // MainForm
             // 
@@ -140,5 +162,7 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.ToolStripMenuItem VideoReturnTSM;
         private System.Windows.Forms.ContextMenuStrip ModVideoCMS;
         private System.Windows.Forms.ToolStripMenuItem VideoModTMS;
+        private System.Windows.Forms.ToolStripMenuItem ClientTSM;
+        private System.Windows.Forms.ContextMenuStrip ClientCMS;
     }
 }

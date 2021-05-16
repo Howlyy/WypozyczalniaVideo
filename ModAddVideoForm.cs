@@ -20,7 +20,7 @@ namespace WypożyczalniaVideo
         private void ModAddVideoBTN_Click(object sender, EventArgs e)
         {
             string book_title = ModAddTitleTB.Text;
-            int quantity = (int)ModAddQuantityNUD.Value;
+            int quantity = Convert.ToInt32(ModAddQuantityTB.Text);
             string category = ModAddCategoryCB.Text;
 
 
@@ -51,7 +51,7 @@ namespace WypożyczalniaVideo
                 MessageBox.Show("Dodano!");
             }
 
-            this.Hide();
+            Hide();
         }
     }
 }

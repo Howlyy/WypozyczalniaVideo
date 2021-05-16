@@ -35,8 +35,7 @@ namespace WypożyczalniaVideo
             this.ModAddCategoryCB = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ModAddQuantityNUD = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.ModAddQuantityNUD)).BeginInit();
+            this.ModAddQuantityTB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ModAddVideoBTN
@@ -99,20 +98,20 @@ namespace WypożyczalniaVideo
             this.label2.TabIndex = 6;
             this.label2.Text = "Tytuł:";
             // 
-            // ModAddQuantityNUD
+            // ModAddQuantityTB
             // 
-            this.ModAddQuantityNUD.Location = new System.Drawing.Point(123, 65);
-            this.ModAddQuantityNUD.Name = "ModAddQuantityNUD";
-            this.ModAddQuantityNUD.Size = new System.Drawing.Size(39, 23);
-            this.ModAddQuantityNUD.TabIndex = 7;
+            this.ModAddQuantityTB.Location = new System.Drawing.Point(123, 65);
+            this.ModAddQuantityTB.Name = "ModAddQuantityTB";
+            this.ModAddQuantityTB.Size = new System.Drawing.Size(142, 23);
+            this.ModAddQuantityTB.TabIndex = 1;
             // 
             // ModAddVideoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 221);
-            this.Controls.Add(this.ModAddQuantityNUD);
             this.Controls.Add(this.ModAddVideoBTN);
+            this.Controls.Add(this.ModAddQuantityTB);
             this.Controls.Add(this.ModAddTitleTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ModAddCategoryCB);
@@ -120,7 +119,6 @@ namespace WypożyczalniaVideo
             this.Controls.Add(this.label2);
             this.Name = "ModAddVideoForm";
             this.Text = "Dodawanie Video";
-            ((System.ComponentModel.ISupportInitialize)(this.ModAddQuantityNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +132,6 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.ComboBox ModAddCategoryCB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown ModAddQuantityNUD;
+        private System.Windows.Forms.TextBox ModAddQuantityTB;
     }
 }

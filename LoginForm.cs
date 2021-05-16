@@ -13,7 +13,7 @@ namespace WypożyczalniaVideo
         {
             InitializeComponent();
 
-            db_con =new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+            db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
         private void LoginBT_Click(object sender, EventArgs e)
@@ -24,20 +24,17 @@ namespace WypożyczalniaVideo
 
             int login_result = login_check(username, password);
 
-                if (login_result > 0)
-                {
-                    this.Hide();
-                    new MainForm().Show();
+            if (login_result > 0)
+            {
+                this.Hide();
+                new MainForm().Show();
 
-                }
-                else
-                {
-                    MessageBox.Show("Błędne dane logowania!");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Błędne dane logowania!");
 
-
-              
-            
+            }
         }
 
         private int login_check(string username, string password)
@@ -55,7 +52,7 @@ namespace WypożyczalniaVideo
 
             cmd_log.ExecuteNonQuery();
 
-            int LoggedUserId = (int)cmd_log.Parameters["@result"].Value; //rzutowanie typu danych (żeby nie zapomnieć nazwy)
+            int LoggedUserId = (int)cmd_log.Parameters["@result"].Value;
 
             db_con.Close();
 
