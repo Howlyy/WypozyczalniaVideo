@@ -45,17 +45,18 @@ namespace WypożyczalniaVideo
             this.ClientModBTN.Location = new System.Drawing.Point(42, 151);
             this.ClientModBTN.Name = "ClientModBTN";
             this.ClientModBTN.Size = new System.Drawing.Size(169, 45);
-            this.ClientModBTN.TabIndex = 22;
+            this.ClientModBTN.TabIndex = 5;
             this.ClientModBTN.Text = "Modyfikuj";
             this.ClientModBTN.UseVisualStyleBackColor = true;
+            this.ClientModBTN.Click += new System.EventHandler(this.ClientModBTN_Click);
             // 
             // ClientModPeselTB
             // 
             this.ClientModPeselTB.Location = new System.Drawing.Point(93, 82);
+            this.ClientModPeselTB.MaxLength = 11;
             this.ClientModPeselTB.Name = "ClientModPeselTB";
             this.ClientModPeselTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientModPeselTB.TabIndex = 19;
-            this.ClientModPeselTB.Text = ClientForm.client_pesel;
+            this.ClientModPeselTB.TabIndex = 3;
             // 
             // label3
             // 
@@ -71,8 +72,7 @@ namespace WypożyczalniaVideo
             this.ClientModLastTB.Location = new System.Drawing.Point(93, 53);
             this.ClientModLastTB.Name = "ClientModLastTB";
             this.ClientModLastTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientModLastTB.TabIndex = 20;
-            this.ClientModLastTB.Text = ClientForm.client_lastname;
+            this.ClientModLastTB.TabIndex = 2;
             // 
             // label1
             // 
@@ -88,8 +88,7 @@ namespace WypożyczalniaVideo
             this.ClientModFirstTB.Location = new System.Drawing.Point(93, 24);
             this.ClientModFirstTB.Name = "ClientModFirstTB";
             this.ClientModFirstTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientModFirstTB.TabIndex = 21;
-            this.ClientModFirstTB.Text = ClientForm.client_firstname;
+            this.ClientModFirstTB.TabIndex = 1;
             // 
             // label2
             // 
@@ -112,10 +111,10 @@ namespace WypożyczalniaVideo
             // ClientModTelTB
             // 
             this.ClientModTelTB.Location = new System.Drawing.Point(93, 111);
+            this.ClientModTelTB.MaxLength = 9;
             this.ClientModTelTB.Name = "ClientModTelTB";
             this.ClientModTelTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientModTelTB.TabIndex = 19;
-            this.ClientModTelTB.Text = ClientForm.client_nrtel;
+            this.ClientModTelTB.TabIndex = 4;
             // 
             // ClientModForm
             // 

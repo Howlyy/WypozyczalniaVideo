@@ -46,7 +46,7 @@ namespace WypożyczalniaVideo
             this.ClientSearchTB.Location = new System.Drawing.Point(417, 22);
             this.ClientSearchTB.Name = "ClientSearchTB";
             this.ClientSearchTB.Size = new System.Drawing.Size(154, 23);
-            this.ClientSearchTB.TabIndex = 12;
+            this.ClientSearchTB.TabIndex = 2;
             // 
             // ClientSearchCB
             // 
@@ -58,7 +58,7 @@ namespace WypożyczalniaVideo
             this.ClientSearchCB.Location = new System.Drawing.Point(268, 22);
             this.ClientSearchCB.Name = "ClientSearchCB";
             this.ClientSearchCB.Size = new System.Drawing.Size(131, 23);
-            this.ClientSearchCB.TabIndex = 11;
+            this.ClientSearchCB.TabIndex = 1;
             this.ClientSearchCB.SelectedIndexChanged += new System.EventHandler(this.ClientSearchCB_SelectedIndexChanged);
             // 
             // ClientSearchLB
@@ -75,7 +75,7 @@ namespace WypożyczalniaVideo
             this.ClientModBTN.Location = new System.Drawing.Point(520, 398);
             this.ClientModBTN.Name = "ClientModBTN";
             this.ClientModBTN.Size = new System.Drawing.Size(155, 31);
-            this.ClientModBTN.TabIndex = 6;
+            this.ClientModBTN.TabIndex = 7;
             this.ClientModBTN.Text = "Modyfikuj kontrahenta";
             this.ClientModBTN.UseVisualStyleBackColor = true;
             this.ClientModBTN.Click += new System.EventHandler(this.ClientModBTN_Click);
@@ -85,7 +85,7 @@ namespace WypożyczalniaVideo
             this.ClientDeleteBTN.Location = new System.Drawing.Point(312, 398);
             this.ClientDeleteBTN.Name = "ClientDeleteBTN";
             this.ClientDeleteBTN.Size = new System.Drawing.Size(155, 31);
-            this.ClientDeleteBTN.TabIndex = 7;
+            this.ClientDeleteBTN.TabIndex = 6;
             this.ClientDeleteBTN.Text = "Usuń kontrahenta";
             this.ClientDeleteBTN.UseVisualStyleBackColor = true;
             this.ClientDeleteBTN.Click += new System.EventHandler(this.ClientDeleteBTN_Click);
@@ -95,7 +95,7 @@ namespace WypożyczalniaVideo
             this.ClientAddBTN.Location = new System.Drawing.Point(115, 398);
             this.ClientAddBTN.Name = "ClientAddBTN";
             this.ClientAddBTN.Size = new System.Drawing.Size(155, 31);
-            this.ClientAddBTN.TabIndex = 8;
+            this.ClientAddBTN.TabIndex = 5;
             this.ClientAddBTN.Text = "Dodaj konrahenta";
             this.ClientAddBTN.UseVisualStyleBackColor = true;
             this.ClientAddBTN.Click += new System.EventHandler(this.ClientAddBTN_Click);
@@ -105,7 +105,7 @@ namespace WypożyczalniaVideo
             this.ClientSearchBTN.Location = new System.Drawing.Point(312, 61);
             this.ClientSearchBTN.Name = "ClientSearchBTN";
             this.ClientSearchBTN.Size = new System.Drawing.Size(155, 31);
-            this.ClientSearchBTN.TabIndex = 9;
+            this.ClientSearchBTN.TabIndex = 4;
             this.ClientSearchBTN.Text = "Wyszukaj";
             this.ClientSearchBTN.UseVisualStyleBackColor = true;
             this.ClientSearchBTN.Click += new System.EventHandler(this.ClientSearchBTN_Click);
@@ -123,7 +123,7 @@ namespace WypożyczalniaVideo
             this.ClientSearchLastTB.Location = new System.Drawing.Point(583, 22);
             this.ClientSearchLastTB.Name = "ClientSearchLastTB";
             this.ClientSearchLastTB.Size = new System.Drawing.Size(154, 23);
-            this.ClientSearchLastTB.TabIndex = 12;
+            this.ClientSearchLastTB.TabIndex = 3;
             this.ClientSearchLastTB.Visible = false;
             // 
             // ClientForm

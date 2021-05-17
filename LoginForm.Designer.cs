@@ -68,14 +68,14 @@ namespace WypożyczalniaVideo
             this.PasswordTB.Name = "PasswordTB";
             this.PasswordTB.PasswordChar = '*';
             this.PasswordTB.Size = new System.Drawing.Size(132, 23);
-            this.PasswordTB.TabIndex = 1;
+            this.PasswordTB.TabIndex = 2;
             // 
             // LoginBT
             // 
             this.LoginBT.Location = new System.Drawing.Point(135, 150);
             this.LoginBT.Name = "LoginBT";
             this.LoginBT.Size = new System.Drawing.Size(104, 27);
-            this.LoginBT.TabIndex = 2;
+            this.LoginBT.TabIndex = 3;
             this.LoginBT.Text = "Zaloguj";
             this.LoginBT.UseVisualStyleBackColor = true;
             this.LoginBT.Click += new System.EventHandler(this.LoginBT_Click);

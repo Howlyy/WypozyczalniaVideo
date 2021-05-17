@@ -77,14 +77,14 @@ namespace WypożyczalniaVideo
             this.SearchTypeCB.Location = new System.Drawing.Point(472, 78);
             this.SearchTypeCB.Name = "SearchTypeCB";
             this.SearchTypeCB.Size = new System.Drawing.Size(111, 23);
-            this.SearchTypeCB.TabIndex = 3;
+            this.SearchTypeCB.TabIndex = 1;
             // 
             // SearchBorrowBTN
             // 
             this.SearchBorrowBTN.Location = new System.Drawing.Point(503, 119);
             this.SearchBorrowBTN.Name = "SearchBorrowBTN";
             this.SearchBorrowBTN.Size = new System.Drawing.Size(129, 33);
-            this.SearchBorrowBTN.TabIndex = 5;
+            this.SearchBorrowBTN.TabIndex = 3;
             this.SearchBorrowBTN.Text = "Wyszukaj";
             this.SearchBorrowBTN.UseVisualStyleBackColor = true;
             this.SearchBorrowBTN.Click += new System.EventHandler(this.button2_Click);
@@ -121,28 +121,28 @@ namespace WypożyczalniaVideo
             this.TitleBorrowTB.Location = new System.Drawing.Point(503, 211);
             this.TitleBorrowTB.Name = "TitleBorrowTB";
             this.TitleBorrowTB.Size = new System.Drawing.Size(171, 23);
-            this.TitleBorrowTB.TabIndex = 2;
+            this.TitleBorrowTB.TabIndex = 4;
             // 
             // FirstnameBorrowTB
             // 
             this.FirstnameBorrowTB.Location = new System.Drawing.Point(503, 247);
             this.FirstnameBorrowTB.Name = "FirstnameBorrowTB";
             this.FirstnameBorrowTB.Size = new System.Drawing.Size(171, 23);
-            this.FirstnameBorrowTB.TabIndex = 2;
+            this.FirstnameBorrowTB.TabIndex = 5;
             // 
             // LastnameBorrowTB
             // 
             this.LastnameBorrowTB.Location = new System.Drawing.Point(503, 280);
             this.LastnameBorrowTB.Name = "LastnameBorrowTB";
             this.LastnameBorrowTB.Size = new System.Drawing.Size(171, 23);
-            this.LastnameBorrowTB.TabIndex = 2;
+            this.LastnameBorrowTB.TabIndex = 6;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(488, 340);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 51);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Wypożycz";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -165,7 +165,7 @@ namespace WypożyczalniaVideo
             this.Controls.Add(this.Wyszukajlb);
             this.Controls.Add(this.SearchBorrowDG);
             this.Name = "BorrowForm";
-            this.Text = "Form1";
+            this.Text = "Wypozyczanie video";
             ((System.ComponentModel.ISupportInitialize)(this.SearchBorrowDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

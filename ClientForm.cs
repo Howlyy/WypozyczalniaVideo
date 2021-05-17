@@ -30,7 +30,10 @@ namespace WypożyczalniaVideo
         private void ClientDeleteBTN_Click(object sender, EventArgs e)
         {
             client_data_datagrid();
+
+
             new ClientDeleteForm().Show();
+
         }
 
         private void ClientSearchBTN_Click(object sender, EventArgs e)
@@ -47,6 +50,8 @@ namespace WypożyczalniaVideo
 
         private void ClientModBTN_Click(object sender, EventArgs e)
         {
+            
+
             if (client_data_datagrid() == 0)
             {
                 new ClientModForm().Show();
@@ -67,7 +72,7 @@ namespace WypożyczalniaVideo
             SqlCommand cmd_client_search = new SqlCommand("all_client_view", db_con);
 
             cmd_client_search.CommandType = CommandType.StoredProcedure;
-            
+
             SqlDataAdapter dtg = new SqlDataAdapter(cmd_client_search);
 
             dtg.Fill(dt);
@@ -94,11 +99,11 @@ namespace WypożyczalniaVideo
 
             cmd_client_mod_search.CommandType = CommandType.StoredProcedure;
 
-            cmd_client_mod_search.Parameters.AddWithValue("@combo", SqlDbType.NVarChar).Value = ClientSearchTB.Text;
+            cmd_client_mod_search.Parameters.AddWithValue("@combo", SqlDbType.NVarChar).Value = ClientSearchCB.Text;
 
             if (ClientSearchCB.Text == "Imię i nazwisko")
             {
-                
+
                 cmd_client_mod_search.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = ClientSearchTB.Text;
                 cmd_client_mod_search.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = ClientSearchLastTB.Text;
                 cmd_client_mod_search.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = "";
@@ -111,14 +116,14 @@ namespace WypożyczalniaVideo
                 cmd_client_mod_search.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = ClientSearchTB.Text;
                 cmd_client_mod_search.Parameters.AddWithValue("@nrtel", SqlDbType.NVarChar).Value = "";
             }
-            else 
+            else
             {
                 cmd_client_mod_search.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = "";
                 cmd_client_mod_search.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = "";
                 cmd_client_mod_search.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = "";
                 cmd_client_mod_search.Parameters.AddWithValue("@nrtel", SqlDbType.NVarChar).Value = ClientSearchTB.Text;
             }
-            
+
 
 
             SqlDataAdapter dtg = new SqlDataAdapter(cmd_client_mod_search);
@@ -130,23 +135,23 @@ namespace WypożyczalniaVideo
 
 
             db_con.Close();
-        }/* sprawdzić jeszcze bo coś nie działa */
+        } 
 
-        private void LastnameTb_visible()
+        private void LastnameTb_visible(ComboBox combo, TextBox lastnameTB)
         {
-            if(ClientSearchCB.SelectedItem == "Imię i nazwisko")
+            if (combo.SelectedItem == "Imię i nazwisko")
             {
-                ClientSearchLastTB.Visible = true;
+                lastnameTB.Visible = true;
             }
             else
             {
-                ClientSearchLastTB.Visible = false;
+                lastnameTB.Visible = false;
             }
         }
 
         private void ClientSearchCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LastnameTb_visible();
+            LastnameTb_visible(ClientSearchCB, ClientSearchLastTB);
         }
         private int client_data_datagrid()
         {

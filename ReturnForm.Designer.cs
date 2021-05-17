@@ -42,23 +42,24 @@ namespace WypożyczalniaVideo
             this.LastnameBorrowLB = new System.Windows.Forms.Label();
             this.FirstnameBorrowLB = new System.Windows.Forms.Label();
             this.BookBorrowLB = new System.Windows.Forms.Label();
+            this.ReturnSearchLastnameTB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SearchReturnDG)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchReturnDG
             // 
             this.SearchReturnDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SearchReturnDG.Location = new System.Drawing.Point(26, 46);
+            this.SearchReturnDG.Location = new System.Drawing.Point(28, 12);
             this.SearchReturnDG.Name = "SearchReturnDG";
-            this.SearchReturnDG.Size = new System.Drawing.Size(307, 310);
+            this.SearchReturnDG.Size = new System.Drawing.Size(325, 426);
             this.SearchReturnDG.TabIndex = 0;
             // 
             // SearchBorrowBTN
             // 
-            this.SearchBorrowBTN.Location = new System.Drawing.Point(484, 92);
+            this.SearchBorrowBTN.Location = new System.Drawing.Point(504, 52);
             this.SearchBorrowBTN.Name = "SearchBorrowBTN";
             this.SearchBorrowBTN.Size = new System.Drawing.Size(129, 33);
-            this.SearchBorrowBTN.TabIndex = 9;
+            this.SearchBorrowBTN.TabIndex = 4;
             this.SearchBorrowBTN.Text = "Wyszukaj";
             this.SearchBorrowBTN.UseVisualStyleBackColor = true;
             this.SearchBorrowBTN.Click += new System.EventHandler(this.SearchReturnBTN_Click);
@@ -69,22 +70,23 @@ namespace WypożyczalniaVideo
             this.SearchTypeReturnCB.Items.AddRange(new object[] {
             "Tytuł",
             "Imię i nazwisko"});
-            this.SearchTypeReturnCB.Location = new System.Drawing.Point(453, 51);
+            this.SearchTypeReturnCB.Location = new System.Drawing.Point(448, 23);
             this.SearchTypeReturnCB.Name = "SearchTypeReturnCB";
             this.SearchTypeReturnCB.Size = new System.Drawing.Size(111, 23);
-            this.SearchTypeReturnCB.TabIndex = 8;
+            this.SearchTypeReturnCB.TabIndex = 1;
+            this.SearchTypeReturnCB.SelectedIndexChanged += new System.EventHandler(this.SearchTypeReturnCB_SelectedIndexChanged);
             // 
             // SearchreturnTB
             // 
-            this.SearchreturnTB.Location = new System.Drawing.Point(570, 51);
+            this.SearchreturnTB.Location = new System.Drawing.Point(565, 23);
             this.SearchreturnTB.Name = "SearchreturnTB";
-            this.SearchreturnTB.Size = new System.Drawing.Size(171, 23);
-            this.SearchreturnTB.TabIndex = 7;
+            this.SearchreturnTB.Size = new System.Drawing.Size(111, 23);
+            this.SearchreturnTB.TabIndex = 2;
             // 
             // Wyszukajlb
             // 
             this.Wyszukajlb.AutoSize = true;
-            this.Wyszukajlb.Location = new System.Drawing.Point(371, 54);
+            this.Wyszukajlb.Location = new System.Drawing.Point(366, 26);
             this.Wyszukajlb.Name = "Wyszukajlb";
             this.Wyszukajlb.Size = new System.Drawing.Size(76, 15);
             this.Wyszukajlb.TabIndex = 6;
@@ -95,7 +97,7 @@ namespace WypożyczalniaVideo
             this.ReturnBTN.Location = new System.Drawing.Point(490, 321);
             this.ReturnBTN.Name = "ReturnBTN";
             this.ReturnBTN.Size = new System.Drawing.Size(143, 51);
-            this.ReturnBTN.TabIndex = 16;
+            this.ReturnBTN.TabIndex = 8;
             this.ReturnBTN.Text = "Zwróć";
             this.ReturnBTN.UseVisualStyleBackColor = true;
             this.ReturnBTN.Click += new System.EventHandler(this.ReturnBTN_Click);
@@ -105,21 +107,21 @@ namespace WypożyczalniaVideo
             this.LastnameReturnTB.Location = new System.Drawing.Point(505, 261);
             this.LastnameReturnTB.Name = "LastnameReturnTB";
             this.LastnameReturnTB.Size = new System.Drawing.Size(171, 23);
-            this.LastnameReturnTB.TabIndex = 13;
+            this.LastnameReturnTB.TabIndex = 7;
             // 
             // FirstnameReturnTB
             // 
             this.FirstnameReturnTB.Location = new System.Drawing.Point(505, 228);
             this.FirstnameReturnTB.Name = "FirstnameReturnTB";
             this.FirstnameReturnTB.Size = new System.Drawing.Size(171, 23);
-            this.FirstnameReturnTB.TabIndex = 14;
+            this.FirstnameReturnTB.TabIndex = 6;
             // 
             // TitleReturnTB
             // 
             this.TitleReturnTB.Location = new System.Drawing.Point(505, 192);
             this.TitleReturnTB.Name = "TitleReturnTB";
             this.TitleReturnTB.Size = new System.Drawing.Size(171, 23);
-            this.TitleReturnTB.TabIndex = 15;
+            this.TitleReturnTB.TabIndex = 5;
             // 
             // LastnameBorrowLB
             // 
@@ -148,7 +150,15 @@ namespace WypożyczalniaVideo
             this.BookBorrowLB.TabIndex = 12;
             this.BookBorrowLB.Text = "Tytuł:";
             // 
-            // Form1
+            // ReturnSearchLastnameTB
+            // 
+            this.ReturnSearchLastnameTB.Location = new System.Drawing.Point(682, 23);
+            this.ReturnSearchLastnameTB.Name = "ReturnSearchLastnameTB";
+            this.ReturnSearchLastnameTB.Size = new System.Drawing.Size(111, 23);
+            this.ReturnSearchLastnameTB.TabIndex = 3;
+            this.ReturnSearchLastnameTB.Visible = false;
+            // 
+            // ReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,11 +172,12 @@ namespace WypożyczalniaVideo
             this.Controls.Add(this.BookBorrowLB);
             this.Controls.Add(this.SearchBorrowBTN);
             this.Controls.Add(this.SearchTypeReturnCB);
+            this.Controls.Add(this.ReturnSearchLastnameTB);
             this.Controls.Add(this.SearchreturnTB);
             this.Controls.Add(this.Wyszukajlb);
             this.Controls.Add(this.SearchReturnDG);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ReturnForm";
+            this.Text = "Zwracanie Video";
             ((System.ComponentModel.ISupportInitialize)(this.SearchReturnDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -187,5 +198,6 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.Label LastnameBorrowLB;
         private System.Windows.Forms.Label FirstnameBorrowLB;
         private System.Windows.Forms.Label BookBorrowLB;
+        private System.Windows.Forms.TextBox ReturnSearchLastnameTB;
     }
 }

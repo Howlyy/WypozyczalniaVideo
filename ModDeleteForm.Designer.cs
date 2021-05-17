@@ -41,7 +41,7 @@ namespace WypożyczalniaVideo
             this.ModDeleteVideoBTN.Location = new System.Drawing.Point(66, 120);
             this.ModDeleteVideoBTN.Name = "ModDeleteVideoBTN";
             this.ModDeleteVideoBTN.Size = new System.Drawing.Size(169, 45);
-            this.ModDeleteVideoBTN.TabIndex = 4;
+            this.ModDeleteVideoBTN.TabIndex = 3;
             this.ModDeleteVideoBTN.Text = "Usuń";
             this.ModDeleteVideoBTN.UseVisualStyleBackColor = true;
             this.ModDeleteVideoBTN.Click += new System.EventHandler(this.ModDeleteVideoBTN_Click);
@@ -67,7 +67,7 @@ namespace WypożyczalniaVideo
             this.ModDeleteCategoryCB.Location = new System.Drawing.Point(112, 76);
             this.ModDeleteCategoryCB.Name = "ModDeleteCategoryCB";
             this.ModDeleteCategoryCB.Size = new System.Drawing.Size(142, 23);
-            this.ModDeleteCategoryCB.TabIndex = 3;
+            this.ModDeleteCategoryCB.TabIndex = 2;
             // 
             // label4
             // 

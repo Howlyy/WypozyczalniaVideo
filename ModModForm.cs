@@ -11,6 +11,8 @@ namespace WypożyczalniaVideo
         SqlConnection db_con;
         public ModModForm()
         {
+            
+
             InitializeComponent();
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }

@@ -28,43 +28,36 @@ namespace WypożyczalniaVideo
 
             db_con.Open();
 
+            SqlCommand cmd_bor_search = new SqlCommand("borrow_search_view", db_con);
+            cmd_bor_search.CommandType = CommandType.StoredProcedure;
+
 
             if (SearchTypeCB.Text == "Kategoria")
             {
 
-                SqlCommand cmd_bor_search = new SqlCommand("borrow_search_category_view", db_con);
-                cmd_bor_search.CommandType = CommandType.StoredProcedure;
-
+                cmd_bor_search.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = "";
                 cmd_bor_search.Parameters.AddWithValue("@category", SqlDbType.NVarChar).Value = SearchborrowTB.Text;
-
-                SqlDataAdapter dtg = new SqlDataAdapter(cmd_bor_search);
-
-                dtg.Fill(dt);
-
-                SearchBorrowDG.DataSource = dt;
+   
             }
-            else 
+            else if (SearchTypeCB.Text == "Tytuł")
             {
                 
-                SqlCommand cmd_bor_search = new SqlCommand("borrow_search_title_view", db_con);
-                cmd_bor_search.CommandType = CommandType.StoredProcedure;
-
-                cmd_bor_search.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = SearchborrowTB.Text;
-
-
-
-                SqlDataAdapter dtg = new SqlDataAdapter(cmd_bor_search);
-
-                dtg.Fill(dt);
-
-                SearchBorrowDG.DataSource = dt;
-
-
-
+               
+                cmd_bor_search.Parameters.AddWithValue("@category", SqlDbType.NVarChar).Value = SearchborrowTB.Text;
+                cmd_bor_search.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = "";
+ 
             }
-          
+            else
+            {
+                cmd_bor_search = new SqlCommand("all_video_view", db_con);
+                cmd_bor_search.CommandType = CommandType.StoredProcedure; 
+            }
+           
+            SqlDataAdapter dtg = new SqlDataAdapter(cmd_bor_search);
 
+            dtg.Fill(dt);
 
+            SearchBorrowDG.DataSource = dt;
 
             db_con.Close();
 

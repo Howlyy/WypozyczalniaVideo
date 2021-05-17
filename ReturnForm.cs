@@ -21,7 +21,8 @@ namespace WypożyczalniaVideo
 
             string combo = SearchTypeReturnCB.Text;
             string title = SearchreturnTB.Text;
-            string client_name = SearchreturnTB.Text;
+            string firstname = SearchreturnTB.Text;
+            string lastname = ReturnSearchLastnameTB.Text;
 
             DataTable dt = new DataTable();
 
@@ -37,12 +38,18 @@ namespace WypożyczalniaVideo
             if (SearchTypeReturnCB.Text == "Tytuł")
             {
                 cmd_bor_search.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = title;
-                cmd_bor_search.Parameters.AddWithValue("@client_name", SqlDbType.NVarChar).Value = "";
+                cmd_bor_search.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = "";
+                cmd_bor_search.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = "";
+            }
+            else if (SearchTypeReturnCB.Text == "Imię i nazwisko")
+            {
+                cmd_bor_search.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = "";
+                cmd_bor_search.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = firstname;
+                cmd_bor_search.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = lastname;
             }
             else
             {
-                cmd_bor_search.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = "";
-                cmd_bor_search.Parameters.AddWithValue("@client_name", SqlDbType.NVarChar).Value = client_name;
+                cmd_bor_search = new SqlCommand("Borrow_return_view_all",db_con);
             }
 
 
@@ -89,7 +96,7 @@ namespace WypożyczalniaVideo
             db_con.Open();
 
 
-            SqlCommand cmd_return = new SqlCommand("return_book", db_con);
+            SqlCommand cmd_return = new SqlCommand("return_video", db_con);
             cmd_return.CommandType = CommandType.StoredProcedure;
 
             cmd_return.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = title;
@@ -105,6 +112,23 @@ namespace WypożyczalniaVideo
             db_con.Close();
 
             return return_result;
+        }
+
+        private void SearchTypeReturnCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LastnameTb_visible(SearchTypeReturnCB, ReturnSearchLastnameTB);
+        }
+
+        private void LastnameTb_visible(ComboBox combo, TextBox lastnameTB)
+        {
+            if (combo.SelectedItem == "Imię i nazwisko")
+            {
+                lastnameTB.Visible = true;
+            }
+            else
+            {
+                lastnameTB.Visible = false;
+            }
         }
     }
 }

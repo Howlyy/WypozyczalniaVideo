@@ -21,7 +21,10 @@ namespace WypożyczalniaVideo
 
         private void ModAddBTN_Click(object sender, EventArgs e)
         {
+            
+
             new ModAddVideoForm().Show();
+        
         }
 
         private void ModSearchBTN_Click(object sender, EventArgs e)
@@ -40,7 +43,15 @@ namespace WypożyczalniaVideo
         private void ModDeleteBTN_Click(object sender, EventArgs e)
         {
 
-            new ModDeleteForm().Show();
+
+            if (data_datagrid() == 0)
+            {
+                new ModDeleteForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("Wyszukaj i zaznacz video");
+            }
         }
 
         private int data_datagrid()
@@ -69,6 +80,10 @@ namespace WypożyczalniaVideo
 
         private void ModModifyBTN_Click(object sender, EventArgs e)
         {
+            
+            
+
+
             if (data_datagrid() == 0)
             {
                 new ModModForm().Show();

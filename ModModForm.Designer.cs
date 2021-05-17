@@ -42,18 +42,21 @@ namespace WypożyczalniaVideo
             // ModModQuantityNUD
             // 
             this.ModModQuantityNUD.Location = new System.Drawing.Point(119, 73);
+            this.ModModQuantityNUD.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.ModModQuantityNUD.Name = "ModModQuantityNUD";
             this.ModModQuantityNUD.Size = new System.Drawing.Size(39, 23);
-            this.ModModQuantityNUD.TabIndex = 14;
-            this.ModModQuantityNUD.Value = VideoModForm.video_quantity;
-            this.ModModQuantityNUD.Maximum = 1000;
+            this.ModModQuantityNUD.TabIndex = 2;
             // 
             // ModModVideoBTN
             // 
             this.ModModVideoBTN.Location = new System.Drawing.Point(71, 156);
             this.ModModVideoBTN.Name = "ModModVideoBTN";
             this.ModModVideoBTN.Size = new System.Drawing.Size(169, 45);
-            this.ModModVideoBTN.TabIndex = 10;
+            this.ModModVideoBTN.TabIndex = 4;
             this.ModModVideoBTN.Text = "Modyfikuj";
             this.ModModVideoBTN.UseVisualStyleBackColor = true;
             this.ModModVideoBTN.Click += new System.EventHandler(this.ModModVideoBTN_Click);
@@ -63,9 +66,7 @@ namespace WypożyczalniaVideo
             this.ModModTitleTB.Location = new System.Drawing.Point(119, 44);
             this.ModModTitleTB.Name = "ModModTitleTB";
             this.ModModTitleTB.Size = new System.Drawing.Size(142, 23);
-            this.ModModTitleTB.TabIndex = 8;
-            this.ModModTitleTB.Text = VideoModForm.video_title;
-
+            this.ModModTitleTB.TabIndex = 1;
             // 
             // label3
             // 
@@ -90,8 +91,7 @@ namespace WypożyczalniaVideo
             this.ModModCategoryCB.Location = new System.Drawing.Point(119, 102);
             this.ModModCategoryCB.Name = "ModModCategoryCB";
             this.ModModCategoryCB.Size = new System.Drawing.Size(142, 23);
-            this.ModModCategoryCB.TabIndex = 9;
-            this.ModModCategoryCB.Text = VideoModForm.video_category;
+            this.ModModCategoryCB.TabIndex = 3;
             // 
             // label4
             // 

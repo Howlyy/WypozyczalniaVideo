@@ -103,7 +103,7 @@ namespace WypożyczalniaVideo
             this.ModAddQuantityTB.Location = new System.Drawing.Point(123, 65);
             this.ModAddQuantityTB.Name = "ModAddQuantityTB";
             this.ModAddQuantityTB.Size = new System.Drawing.Size(142, 23);
-            this.ModAddQuantityTB.TabIndex = 1;
+            this.ModAddQuantityTB.TabIndex = 2;
             // 
             // ModAddVideoForm
             // 

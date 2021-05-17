@@ -23,6 +23,9 @@ namespace WypożyczalniaVideo
 
             delete_messagebox(title, category);
 
+            Hide();
+            
+
         }
 
         private int delete_video(string video_title,  string video_category)
@@ -53,6 +56,7 @@ namespace WypożyczalniaVideo
             if (mb_result == DialogResult.Yes)
             {
                 delete_video(title, category);
+                MessageBox.Show("Usunięto video!");
             }
             else
                 MessageBox.Show("lipa");

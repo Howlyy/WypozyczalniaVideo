@@ -43,7 +43,7 @@ namespace WypożyczalniaVideo
             this.ClientDeleteBTN.Location = new System.Drawing.Point(69, 136);
             this.ClientDeleteBTN.Name = "ClientDeleteBTN";
             this.ClientDeleteBTN.Size = new System.Drawing.Size(169, 45);
-            this.ClientDeleteBTN.TabIndex = 17;
+            this.ClientDeleteBTN.TabIndex = 4;
             this.ClientDeleteBTN.Text = "Usuń";
             this.ClientDeleteBTN.UseVisualStyleBackColor = true;
             this.ClientDeleteBTN.Click += new System.EventHandler(this.ClientDeleteBTN_Click);
@@ -53,7 +53,7 @@ namespace WypożyczalniaVideo
             this.ClientDeleteFirstTB.Location = new System.Drawing.Point(109, 34);
             this.ClientDeleteFirstTB.Name = "ClientDeleteFirstTB";
             this.ClientDeleteFirstTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientDeleteFirstTB.TabIndex = 14;
+            this.ClientDeleteFirstTB.TabIndex = 1;
             // 
             // label2
             // 
@@ -78,7 +78,7 @@ namespace WypożyczalniaVideo
             this.ClientDeleteLastTB.Location = new System.Drawing.Point(109, 63);
             this.ClientDeleteLastTB.Name = "ClientDeleteLastTB";
             this.ClientDeleteLastTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientDeleteLastTB.TabIndex = 14;
+            this.ClientDeleteLastTB.TabIndex = 2;
             // 
             // label3
             // 
@@ -92,9 +92,10 @@ namespace WypożyczalniaVideo
             // ClientDeletePeselTB
             // 
             this.ClientDeletePeselTB.Location = new System.Drawing.Point(109, 92);
+            this.ClientDeletePeselTB.MaxLength = 11;
             this.ClientDeletePeselTB.Name = "ClientDeletePeselTB";
             this.ClientDeletePeselTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientDeletePeselTB.TabIndex = 14;
+            this.ClientDeletePeselTB.TabIndex = 3;
             // 
             // ClientDeleteForm
             // 

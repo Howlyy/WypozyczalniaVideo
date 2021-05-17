@@ -45,7 +45,7 @@ namespace WypożyczalniaVideo
             this.ClientAddBTN.Location = new System.Drawing.Point(64, 165);
             this.ClientAddBTN.Name = "ClientAddBTN";
             this.ClientAddBTN.Size = new System.Drawing.Size(169, 45);
-            this.ClientAddBTN.TabIndex = 22;
+            this.ClientAddBTN.TabIndex = 5;
             this.ClientAddBTN.Text = "Dodaj";
             this.ClientAddBTN.UseVisualStyleBackColor = true;
             this.ClientAddBTN.Click += new System.EventHandler(this.ClientAddBTN_Click);
@@ -53,9 +53,10 @@ namespace WypożyczalniaVideo
             // ClientAddPeselTB
             // 
             this.ClientAddPeselTB.Location = new System.Drawing.Point(102, 85);
+            this.ClientAddPeselTB.MaxLength = 11;
             this.ClientAddPeselTB.Name = "ClientAddPeselTB";
             this.ClientAddPeselTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientAddPeselTB.TabIndex = 19;
+            this.ClientAddPeselTB.TabIndex = 3;
             // 
             // label3
             // 
@@ -71,7 +72,7 @@ namespace WypożyczalniaVideo
             this.ClientAddLastTB.Location = new System.Drawing.Point(102, 56);
             this.ClientAddLastTB.Name = "ClientAddLastTB";
             this.ClientAddLastTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientAddLastTB.TabIndex = 20;
+            this.ClientAddLastTB.TabIndex = 2;
             // 
             // label1
             // 
@@ -87,7 +88,7 @@ namespace WypożyczalniaVideo
             this.ClientAddFirstTB.Location = new System.Drawing.Point(102, 27);
             this.ClientAddFirstTB.Name = "ClientAddFirstTB";
             this.ClientAddFirstTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientAddFirstTB.TabIndex = 21;
+            this.ClientAddFirstTB.TabIndex = 1;
             // 
             // label2
             // 
@@ -110,9 +111,10 @@ namespace WypożyczalniaVideo
             // ClientAddTelTB
             // 
             this.ClientAddTelTB.Location = new System.Drawing.Point(102, 114);
+            this.ClientAddTelTB.MaxLength = 9;
             this.ClientAddTelTB.Name = "ClientAddTelTB";
             this.ClientAddTelTB.Size = new System.Drawing.Size(142, 23);
-            this.ClientAddTelTB.TabIndex = 19;
+            this.ClientAddTelTB.TabIndex = 4;
             // 
             // ClientAddForm
             // 

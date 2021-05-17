@@ -25,6 +25,7 @@ namespace WypożyczalniaVideo
             if (add_client(firstname, lastname, pesel, nrtel) == 1)
             {
                 MessageBox.Show("Dodano nowego kontrahenta!");
+                Hide();
             }
             else
                 MessageBox.Show("Taki kontrahent już istnieje!");
