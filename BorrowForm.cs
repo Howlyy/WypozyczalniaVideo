@@ -10,6 +10,9 @@ using System.Configuration;
 
 namespace WypożyczalniaVideo
 {
+    /// <summary>
+    /// Form Wypożyczania video
+    /// </summary>
     public partial class BorrowForm : Form
     {
         SqlConnection db_con;
@@ -19,8 +22,12 @@ namespace WypożyczalniaVideo
             InitializeComponent();
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Methoda opisująca użycie przycisku SearchBorrowBTN. Wyszukiwanie po text w Comboboxie oraz Textboxach
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchBorrowBTN_Click(object sender, EventArgs e)
         {
             
 
@@ -63,17 +70,21 @@ namespace WypożyczalniaVideo
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Metoda opisująca uzycie przycisku BorrowBTN. Wypozycznie video przez methodę video_borrow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BorrowBTN_Click(object sender, EventArgs e)
         {
 
-            string book_title = TitleBorrowTB.Text;
+            string video_title = TitleBorrowTB.Text;
             string client_firstname = FirstnameBorrowTB.Text;
             string client_lastname = LastnameBorrowTB.Text;
 
 
-            int book_borrow_result = book_borrow(book_title, client_firstname, client_lastname);
 
-            if(book_borrow_result == 1)
+            if(video_borrow(video_title, client_firstname, client_lastname) == 1)
             {
                 MessageBox.Show("Wypozyczono!");
             }
@@ -85,7 +96,14 @@ namespace WypożyczalniaVideo
 
         }
 
-        private int book_borrow(string video_title, string client_firstname, string client_lastname)
+        /// <summary>
+        /// Methoda korzystająca z procedury w SQL video_borrow. Wypozycza video po podaniu parametrów. Zwraca result 1 - wypożyczono,666 - error
+        /// </summary>
+        /// <param name="video_title">Tytuł video</param>
+        /// <param name="client_firstname">Imię klienta</param>
+        /// <param name="client_lastname">Nazwisko klienta</param>
+        /// <returns></returns>
+        private int video_borrow(string video_title, string client_firstname, string client_lastname)
         {
            
             db_con.Open();

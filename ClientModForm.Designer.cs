@@ -134,6 +134,7 @@ namespace WypożyczalniaVideo
             this.Text = "ClientModForm";
             this.ResumeLayout(false);
             this.PerformLayout();
+            
 
         }
 

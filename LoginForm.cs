@@ -6,16 +6,24 @@ using System.Data;
 
 namespace WypożyczalniaVideo
 {
+    /// <summary>
+    /// Form Logowania do programu Wypozyczalni Video
+    /// </summary>
     public partial class LoginForm : Form
     {
-        SqlConnection db_con;
+        
+        SqlConnection db_con; 
         public LoginForm()
         {
             InitializeComponent();
-
-            db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+            
+            db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString); 
         }
-
+        /// <summary>
+        /// Methoda uzycia przycisku LoginBTN. Po przyciśnieciu używa methody login_check to sprawdzenia poprawności danych. Jak tak to pokazuje Mainform
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginBT_Click(object sender, EventArgs e)
         {
 
@@ -37,6 +45,12 @@ namespace WypożyczalniaVideo
             }
         }
 
+        /// <summary>
+        /// Methoda używająca procedury SQL do sprawdzenia popraności danych logowania. Przypisuje do LoggedUserId jego id w bazie.  666- nie poprawne 
+        /// </summary>
+        /// <param name="username">Username uzytkownika</param>
+        /// <param name="password">Hasło użytkownika</param>
+        /// <returns></returns>
         private int login_check(string username, string password)
         {
 

@@ -6,6 +6,9 @@ using System.Data;
 
 namespace WypożyczalniaVideo
 {
+    /// <summary>
+    /// Form zwrotu video
+    /// </summary>
     public partial class ReturnForm : Form
     {
         SqlConnection db_con;
@@ -15,7 +18,12 @@ namespace WypożyczalniaVideo
             InitializeComponent();
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
-
+        /// <summary>
+        /// Methoda użycia przycisku SearchReturnBTN. Używa procedury SQL Borrow_return_view i wypisuje otrzymane dane do datagrida.
+        /// Dane czerpie z TextBoxów.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchReturnBTN_Click(object sender, EventArgs e)
         {
 
@@ -67,6 +75,11 @@ namespace WypożyczalniaVideo
 
         }
 
+        /// <summary>
+        /// Methoda użycia przycisku ReturnBTN. Używa methody return_video do zwrotu video. Jezeli return_video_result = 1 - zwrot inaczej błędne dane
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReturnBTN_Click(object sender, EventArgs e)
         {
 
@@ -90,6 +103,13 @@ namespace WypożyczalniaVideo
             }
         }
 
+        /// <summary>
+        /// Methoda zwrotu video. Wykorzystuje procedurę SQL return_video. Zwraca w postaci inta zmienna return_result. 1 - zwrot inaczej bład danych
+        /// </summary>
+        /// <param name="title">Tytłu video zwracanego</param>
+        /// <param name="client_firstname">Imię klienta zwracającego video</param>
+        /// <param name="client_lastname">Nazwisko klienta zwracającego video</param>
+        /// <returns></returns>
         private int return_video(string title, string client_firstname, string client_lastname)
         {
            
@@ -114,14 +134,25 @@ namespace WypożyczalniaVideo
             return return_result;
         }
 
+        /// <summary>
+        /// Methoda zdażenia zmiany wartości w combo boxie. Jeżeli dojdzie do zmiany wywołuje methodę LastnameTB_visible(Combo, lastname)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchTypeReturnCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LastnameTb_visible(SearchTypeReturnCB, ReturnSearchLastnameTB);
+            LastnameTb_visible(SearchTypeReturnCB, ReturnSearchLastnameTB, "Imię i nazwisko");
         }
 
-        private void LastnameTb_visible(ComboBox combo, TextBox lastnameTB)
+        /// <summary>
+        /// Methoda ustawiania widocznosci lastnametb. Jeżeli wartość w Comboboxie zmieni sie na "Imię i nazwisko" ustawia parametr Visible = true na ReturnSearchLastnameTB
+        /// </summary>
+        /// <param name="combo">Nazwa ComboBoxa</param>
+        /// <param name="lastnameTB">Nazwa textboxa do odkrycia</param>
+        /// <param name="wartosc">Wartośc przy której będzie zmiana Visible na true</param>
+        private void LastnameTb_visible(ComboBox combo, TextBox lastnameTB, string wartosc)
         {
-            if (combo.SelectedItem == "Imię i nazwisko")
+            if (combo.SelectedItem == wartosc)
             {
                 lastnameTB.Visible = true;
             }
