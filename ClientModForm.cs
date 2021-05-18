@@ -16,6 +16,11 @@ namespace WypożyczalniaVideo
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
+        /// <summary>
+        /// Methoda uzycia przycisku Modyfikuj. Wywołuje methode  mod_client_messagebox(firstname, lastname, pesel, nrtel).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientModBTN_Click(object sender, EventArgs e)
         {
             string firstname = ClientModFirstTB.Text;
@@ -26,7 +31,14 @@ namespace WypożyczalniaVideo
             mod_client_messagebox(firstname, lastname, pesel, nrtel);
         }
 
-
+        /// <summary>
+        /// Methoda wywołująca procedurę SQL modify_client przyjmująca parametry @firstname, @lastname, @pesel, @nrtel, @result jako OUTPUT
+        /// </summary>
+        /// <param name="firstname">Imię kontrahenta</param>
+        /// <param name="lastname">Nazwisko kontrahenta</param>
+        /// <param name="pesel">Pesel kontrahenta</param>
+        /// <param name="nrtel">Numer telefonu kontrahenta</param>
+        /// <returns>int mod_result - przyjmuję wartosć 1 jeżeli klient został zmodyfikowany, inaczej 666.</returns>
         private int mod_client(string firstname, string lastname, string pesel, string nrtel)
         {
             db_con.Open();
@@ -50,6 +62,14 @@ namespace WypożyczalniaVideo
             return mod_result;
         }
 
+        /// <summary>
+        /// Metoda wyświtlająca Messageboxa YESNO. Jezeli wybrano YES wywołuje methode mod_client(firstname, lastname, pesel, nrtel), wyświtla komunika o poprawnym zmodyfikowaniu kontrahenta i chowa okno.
+        /// Inaczej komunikat o błędzie
+        /// </summary>
+        /// <param name="firstname">Imie kontrahenta</param>
+        /// <param name="lastname">Nazwisko kontrahenta</param>
+        /// <param name="pesel">Pesel kontrahenta</param>
+        /// <param name="nrtel">Numer telefonu kontrahenta</param>
         private void mod_client_messagebox(string firstname, string lastname, string pesel, string nrtel)
         {
             var mb_result = MessageBox.Show("Czy napewno chcesz usunąć " + ClientModFirstTB.Text + " " + ClientModLastTB.Text + " ?", "Powiadomienie", MessageBoxButtons.YesNo);
@@ -61,7 +81,7 @@ namespace WypożyczalniaVideo
                 Hide();
             }
             else
-                MessageBox.Show("lipa");
+                MessageBox.Show("Błąd modyfikacji! Sprawdz dane!");
 
         }
     }

@@ -15,7 +15,11 @@ namespace WypożyczalniaVideo
             InitializeComponent();
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
-
+        /// <summary>
+        ///  Metoda uzycia przycisku Usuń. Wywołuje metode delete_messagebox(title, category);
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModDeleteVideoBTN_Click(object sender, EventArgs e)
         {
             string title = ModDeleteTitleTB.Text;
@@ -23,11 +27,17 @@ namespace WypożyczalniaVideo
 
             delete_messagebox(title, category);
 
-            Hide();
+            
             
 
         }
 
+        /// <summary>
+        /// Metoda wywołująca procedurę SQL delete_video przyjmującą parametry @title, @category, @result jako OUTPUT.
+        /// </summary>
+        /// <param name="video_title">Tytuł video</param>
+        /// <param name="video_category">Kategoria Video</param>
+        /// <returns>int delete_result - przyjmuje 1 gdy usunięcie sie powiodło, inaczej 666.</returns>
         private int delete_video(string video_title,  string video_category)
         {
             db_con.Open();
@@ -49,6 +59,11 @@ namespace WypożyczalniaVideo
             return delete_result;
         }
 
+        /// <summary>
+        /// Metoda wyświtlająca Messageboxa YESNO. Jezeli wybrano YES wywołuje metode delete_video(title, category) i wyświetla komunikat, inaczej wyświetla komunikat o błędzie.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="category"></param>
         private void delete_messagebox(string title, string category)
         {
             var mb_result =  MessageBox.Show("Czy napewno chcesz usunąć " + ModDeleteTitleTB.Text + " ?", "Powiadomienie" + ModDeleteTitleTB.Text, MessageBoxButtons.YesNo);
@@ -57,9 +72,10 @@ namespace WypożyczalniaVideo
             {
                 delete_video(title, category);
                 MessageBox.Show("Usunięto video!");
+                Hide();
             }
             else
-                MessageBox.Show("lipa");
+                MessageBox.Show("NIe usunięto! Sprawdz dane!");
 
         }
     }

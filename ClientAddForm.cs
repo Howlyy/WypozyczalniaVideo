@@ -15,6 +15,11 @@ namespace WypożyczalniaVideo
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
+        /// <summary>
+        /// Methoda uzycia przycisku Dodaj klienta. Jeżeli methoda add_client(firstname, lastname, pesel, nrtel) == 1 wyświetla komunika o dodaniu, inaczej że kontrahent juz istnieje
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientAddBTN_Click(object sender, EventArgs e)
         {
             string firstname = ClientAddFirstTB.Text;
@@ -31,6 +36,14 @@ namespace WypożyczalniaVideo
                 MessageBox.Show("Taki kontrahent już istnieje!");
         }
 
+        /// <summary>
+        /// Methoda wywołująca procedurę SQL add_new_client przyjmująca parametry @firstname, @lastname, @pesel, @nrtel.
+        /// </summary>
+        /// <param name="firstname">Imię kontrahenta</param>
+        /// <param name="lastname">Nazwisko kontrahenta</param>
+        /// <param name="pesel">Pesel kontrahenta</param>
+        /// <param name="nrtel">Numer telefonu kontrahenta</param>
+        /// <returns>in add_result przyjmuje wartość 1 gdy dodanie powiodło się, inaczej 666 jeżeli taki kontrahent już istnieje</returns>
         private int add_client(string firstname, string lastname, string pesel, string nrtel)
         {
             db_con.Open();

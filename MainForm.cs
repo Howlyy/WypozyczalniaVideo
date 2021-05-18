@@ -22,6 +22,11 @@ namespace WypożyczalniaVideo
             
         }
 
+        /// <summary>
+        /// Metoda uzycia(otwarcia) przycisku w menustripsie "Wypożycz". Otwiera nowe okno BorrowForm w MdiContenerze(MAinForm).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BorrowCMS_Opening(object sender, CancelEventArgs e)
         {
 
@@ -29,7 +34,11 @@ namespace WypożyczalniaVideo
             BorrowForm.MdiParent = this;
             BorrowForm.Show();
         }
-
+        /// <summary>
+        /// Metoda uzycia(otwarcia) przycisku w menustripsie "Zwróć". Otwiera nowe okno ReturnForm w MdiContenerze(MAinForm).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReturnCMS_Opening(object sender, CancelEventArgs e)
         {
             Form ReturnForm = new ReturnForm();
@@ -37,6 +46,11 @@ namespace WypożyczalniaVideo
             ReturnForm.Show();
         }
 
+        /// <summary>
+        /// Metoda uzycia(otwarcia) przycisku w menustripsie "Modyfikuj video". Otwiera nowe okno VideoModForm w MdiContenerze(MAinForm).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModVideoCMS_Opening(object sender, CancelEventArgs e)
         {
             Form VideoModForm = new VideoModForm();
@@ -45,6 +59,11 @@ namespace WypożyczalniaVideo
 
         }
 
+        /// <summary>
+        /// Metoda uzycia(otwarcia) przycisku w menustripsie "Kontrahent". Otwiera nowe okno ClientForm w MdiContenerze(MAinForm).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientCMS_Opening(object sender, CancelEventArgs e)
         {
             Form ClientForm = new ClientForm();

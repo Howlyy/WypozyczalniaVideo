@@ -22,20 +22,43 @@ namespace WypożyczalniaVideo
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
+        /// <summary>
+        /// Metoda uzycia przycisku Dodanie kontrahenta. Wyświetla ClientAddForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientAddBTN_Click(object sender, EventArgs e)
         {
             new ClientAddForm().Show();
         }
 
+        /// <summary>
+        /// Metoda uzycia przycisku usunięcie kontrahenta. Wywoluje methodę client_data_datagrid() która przypisuję wartości do publicznych zmiennych staticznych w ClientFormie jezeli sa zaznaczone na datagridzie.
+        /// Wyświetla ClientDeleteForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientDeleteBTN_Click(object sender, EventArgs e)
         {
-            client_data_datagrid();
+            
+            if (client_data_datagrid() == 0)
+            {
+                new ClientDeleteForm().Show();
+            }
+            else
+            {
+                MessageBox.Show("Nie ma czego usuwać! Wyszukaj dane");
+            }
 
-
-            new ClientDeleteForm().Show();
+            
 
         }
 
+        /// <summary>
+        /// Metoda uzycia przycisku Wyszukaj. Jeżeli TextBoxy są puste wyświetla methodę Search_view_all, inaczej Search_view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientSearchBTN_Click(object sender, EventArgs e)
         {
             if (ClientSearchCB.Text == "" && ClientSearchTB.Text == "")
@@ -48,6 +71,12 @@ namespace WypożyczalniaVideo
             }
         }
 
+        /// <summary>
+        /// Metoda użycia przycisku Modyfikuj kontrahenta. Jeżeli dane są wybrane na datagridzie przypisuję dane do publicznych zmiennych statycznych w clientformie i wyświetla ClientMOdForm.
+        /// Inaczej wyświetla komunikat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientModBTN_Click(object sender, EventArgs e)
         {
             
@@ -62,6 +91,9 @@ namespace WypożyczalniaVideo
             }
         }
 
+        /// <summary>
+        /// Metoda wywołująca procedurę SQL all_client_view która zwraca informacje o wszystkich kontrahentach z bazy do datagrida. 
+        /// </summary>
         private void Search_view_all()
         {
             DataTable dt = new DataTable();
@@ -84,8 +116,11 @@ namespace WypożyczalniaVideo
             db_con.Close();
         }
 
-
-
+        /// <summary>
+        /// Metoda wywołująca procedurę SQL client_view która przyjmuje parametry @firstname, @lastname, @pesel, @nrtel.
+        /// Jeżeli ComboBox(ClientSearchCB)  == "Imię i nazwisko" wyświetla dane po Imieniu i nazwisku. Jeżeli pesel to po peselu kontrahenta.
+        /// Inaczej po numerze telefonu. Dane wyswietlaja sie w datagridzie
+        /// </summary>
         private void Search_view()
         {
             DataTable dt = new DataTable();
@@ -135,8 +170,13 @@ namespace WypożyczalniaVideo
 
 
             db_con.Close();
-        } 
+        }
 
+        /// <summary>
+        /// Methoda ustawiająca parametr Visible na Textboxie po wybraniu "Imię i nazwisko" w Comboboxie.
+        /// </summary>
+        /// <param name="combo">Nazwa comboboxu</param>
+        /// <param name="lastnameTB">Nazwa textboxu ustawienia parametru Visible true or false</param>
         private void LastnameTb_visible(ComboBox combo, TextBox lastnameTB)
         {
             if (combo.SelectedItem == "Imię i nazwisko")
@@ -148,11 +188,20 @@ namespace WypożyczalniaVideo
                 lastnameTB.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Methoda zmiany wartości w Comboxie ClientSearchCB. Jeżeli wartość ulegnie zmianie wywołuje methodę LastnameTB_Visible(ClientSearchCB, ClientSearchLastTB)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClientSearchCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             LastnameTb_visible(ClientSearchCB, ClientSearchLastTB);
         }
+
+        /// <summary>
+        /// Methoda dopisująca wartości do zmiennych publicznych statycznych w ClientForm jeżeli są zaznaczone na datagridzie, inaczej wyłapuje Errora.
+        /// </summary>
+        /// <returns>Int error - powyłapaniu error ustawia wartośc na 1, inaczej 0</returns>
         private int client_data_datagrid()
         {
             int error;

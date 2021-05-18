@@ -9,7 +9,7 @@ namespace WypożyczalniaVideo
     public partial class VideoModForm : Form
     {
         SqlConnection db_con;
-
+        
         public static string video_title = "";
         public static string video_category = "";
         public static int video_quantity = 0;
@@ -19,14 +19,23 @@ namespace WypożyczalniaVideo
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
         }
 
+        /// <summary>
+        /// Metoda użycia przcisku Dodaj video. Otwiera ModAddVideoForm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModAddBTN_Click(object sender, EventArgs e)
         {
-            
 
             new ModAddVideoForm().Show();
         
         }
 
+        /// <summary>
+        /// Metoda użycia przcisku Wyszukaj. Uzywa methody Search_view_all gdy nie ma wpisanych wartości w TextBoxy. Gdy są to uzywa mthody Search_view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModSearchBTN_Click(object sender, EventArgs e)
         {
             if (ModSearchCB.Text == "" && ModSearchTB.Text == "")
@@ -40,6 +49,11 @@ namespace WypożyczalniaVideo
 
         }
 
+        /// <summary>
+        /// Metoda użycia przcisku Usuń video. Otwiera ModDeleteForm gdy są zaznaczone dane na DataGridzie(if data_grid() == 0).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModDeleteBTN_Click(object sender, EventArgs e)
         {
 
@@ -54,6 +68,10 @@ namespace WypożyczalniaVideo
             }
         }
 
+        /// <summary>
+        /// Methoda która po zaznaczeniu komórek na Datagridzie przypisuje je odpowiednio do publicznych zmiennych statycznych(selected_title, selected_category, selected_quantity). Inaczej catchuje errror i ustawia 1 na zmiennej error.
+        /// </summary>
+        /// <returns>Int Error - zmienna której przypisywana jest 1 jeżeli try,catch wyłapie error inaczej 0</returns>
         private int data_datagrid()
         {
             int error;
@@ -78,12 +96,14 @@ namespace WypożyczalniaVideo
             return error;
         }
 
+        /// <summary>
+        /// Methoda użycia przycisku Modyfikuj video. Jeżeli są zaznaczone dane czyli data_datagrid zwróci 0 otwiera ModModForm inaczej komunikat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModModifyBTN_Click(object sender, EventArgs e)
         {
             
-            
-
-
             if (data_datagrid() == 0)
             {
                 new ModModForm().Show();
@@ -94,6 +114,11 @@ namespace WypożyczalniaVideo
             }
 
         }
+
+        /// <summary>
+        /// Methoda wywołująca procedurę SQL video_view o parametrach @title, @category i @combo. Jeżeli @combo (ModSearchCB) == "Tytuł" wyświetlane sa dane 
+        /// na datagridzie szukanego video po tytule. Jeżeli @combo (ModSearchCB) jest inne to wyświetla video szukane po kategorii.
+        /// </summary>
         private void Search_view()
         {
             DataTable dt = new DataTable();
@@ -102,7 +127,6 @@ namespace WypożyczalniaVideo
 
 
             SqlCommand cmd_mod_search = new SqlCommand("video_view", db_con);
-
 
 
             cmd_mod_search.CommandType = CommandType.StoredProcedure;
@@ -131,6 +155,9 @@ namespace WypożyczalniaVideo
             db_con.Close();
         }
 
+        /// <summary>
+        /// Metoda wywołująca procedurę SQL all_video_view. Uzupełnia dane na datagridzie wszystkimi video z bazy.
+        /// </summary>
         private void Search_view_all()
         {
             DataTable dt = new DataTable();
