@@ -41,6 +41,8 @@ namespace WypożyczalniaVideo
             this.ModVideoCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ClientTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CalculatorTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.CalculatorCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.VideoBorrowCMS.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +51,8 @@ namespace WypożyczalniaVideo
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.VideoTSM,
-            this.ClientTSM});
+            this.ClientTSM,
+            this.CalculatorTSM});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(984, 24);
@@ -88,6 +91,7 @@ namespace WypożyczalniaVideo
             this.BorrowCMS.Size = new System.Drawing.Size(61, 4);
             this.BorrowCMS.Text = "Wypozycz";
             this.BorrowCMS.Opening += new System.ComponentModel.CancelEventHandler(this.BorrowCMS_Opening);
+            this.BorrowCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // VideoReturnTSM
             // 
@@ -103,6 +107,7 @@ namespace WypożyczalniaVideo
             this.ReturnCMS.Size = new System.Drawing.Size(61, 4);
             this.ReturnCMS.Text = "Zwróć";
             this.ReturnCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ReturnCMS_Opening);
+            this.ReturnCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // VideoModTMS
             // 
@@ -117,6 +122,7 @@ namespace WypożyczalniaVideo
             this.ModVideoCMS.OwnerItem = this.VideoModTMS;
             this.ModVideoCMS.Size = new System.Drawing.Size(61, 4);
             this.ModVideoCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ModVideoCMS_Opening);
+            this.ModVideoCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // ClientTSM
             // 
@@ -132,6 +138,20 @@ namespace WypożyczalniaVideo
             this.ClientCMS.Size = new System.Drawing.Size(61, 4);
             this.ClientCMS.Opening += new System.ComponentModel.CancelEventHandler(this.ClientCMS_Opening);
             this.ClientCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // CalculatorTSM
+            // 
+            this.CalculatorTSM.DropDown = this.CalculatorCMS;
+            this.CalculatorTSM.Name = "CalculatorTSM";
+            this.CalculatorTSM.Size = new System.Drawing.Size(72, 20);
+            this.CalculatorTSM.Text = "Kalkulator";
+            // 
+            // CalculatorCMS
+            // 
+            this.CalculatorCMS.Name = "CalculatorCMS";
+            this.CalculatorCMS.Size = new System.Drawing.Size(61, 4);
+            this.CalculatorCMS.Opening += new System.ComponentModel.CancelEventHandler(this.CalculatorCMS_Opening);
+            this.CalculatorCMS.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // MainForm
             // 
@@ -164,5 +184,7 @@ namespace WypożyczalniaVideo
         private System.Windows.Forms.ToolStripMenuItem VideoModTMS;
         private System.Windows.Forms.ToolStripMenuItem ClientTSM;
         private System.Windows.Forms.ContextMenuStrip ClientCMS;
+        private System.Windows.Forms.ToolStripMenuItem CalculatorTSM;
+        private System.Windows.Forms.ContextMenuStrip CalculatorCMS;
     }
 }

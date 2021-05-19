@@ -12,12 +12,12 @@ namespace WypożyczalniaVideo
     public partial class LoginForm : Form
     {
         
-        SqlConnection db_con; 
+        
         public LoginForm()
         {
             InitializeComponent();
             
-            db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString); 
+             
         }
         /// <summary>
         /// Methoda uzycia przycisku LoginBTN. Po przyciśnieciu używa methody login_check to sprawdzenia poprawności danych. Jak tak to pokazuje Mainform
@@ -51,8 +51,11 @@ namespace WypożyczalniaVideo
         /// <param name="username">Username uzytkownika</param>
         /// <param name="password">Hasło użytkownika</param>
         /// <returns></returns>
-        private int login_check(string username, string password)
+        public static int login_check(string username, string password)
         {
+            SqlConnection db_con;
+
+            db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
 
             db_con.Open();
 

@@ -72,6 +72,12 @@ namespace WypożyczalniaVideo
 
         }
 
-       
+        private void CalculatorCMS_Opening(object sender, CancelEventArgs e)
+        {
+            Form Calculator = new CalculatorForm();
+            Calculator.MdiParent = this;
+            Calculator.Show();
+            
+        }
     }  
 }

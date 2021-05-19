@@ -36,8 +36,12 @@ namespace WypożyczalniaVideo
         /// <param name="lastname">Nazwisko kontrahenta</param>
         /// <param name="pesel">Pesel kontrahenta</param>
         /// <returns>int delete_result przyjmuję wartość 1 gdy udało się usunąć kontrahenta, 666 gdy nie</returns>
-        private int delete_client(string firstname, string lastname, string pesel)
+        public static int delete_client(string firstname, string lastname, string pesel)
         {
+
+            
+            SqlConnection db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+
             db_con.Open();
 
 

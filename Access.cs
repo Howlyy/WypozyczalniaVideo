@@ -8,7 +8,7 @@ namespace WypożyczalniaVideo
 {
     public static class Access
     {
-        public static string Connect(string name)
+        public static string Connect()
         {
             return ConfigurationManager.ConnectionStrings["Video"].ConnectionString;
         }
