@@ -48,7 +48,7 @@ namespace WypożyczalniaVideo
             0,
             0});
             this.ModModQuantityNUD.Name = "ModModQuantityNUD";
-            this.ModModQuantityNUD.Size = new System.Drawing.Size(39, 23);
+            this.ModModQuantityNUD.Size = new System.Drawing.Size(68, 23);
             this.ModModQuantityNUD.TabIndex = 2;
             // 
             // ModModVideoBTN

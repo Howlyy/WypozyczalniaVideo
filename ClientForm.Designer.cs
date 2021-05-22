@@ -141,7 +141,7 @@ namespace WypożyczalniaVideo
             this.Controls.Add(this.ClientSearchBTN);
             this.Controls.Add(this.ClientSearchDG);
             this.Name = "ClientForm";
-            this.Text = "ClientForm";
+            this.Text = "Kontrahent";
             ((System.ComponentModel.ISupportInitialize)(this.ClientSearchDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

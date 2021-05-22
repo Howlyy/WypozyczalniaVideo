@@ -60,7 +60,6 @@ namespace WypożyczalniaVideo
             this.UsernameTB.Name = "UsernameTB";
             this.UsernameTB.Size = new System.Drawing.Size(132, 23);
             this.UsernameTB.TabIndex = 1;
-            this.UsernameTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PasswordTB
             // 

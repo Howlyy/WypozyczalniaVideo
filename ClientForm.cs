@@ -14,6 +14,8 @@ namespace WypożyczalniaVideo
         public static string client_lastname = "";
         public static string client_pesel = "";
         public static string client_nrtel = "";
+        public static string client_combo = "";
+        public static int client_id = 0;
 
 
         public ClientForm()
@@ -43,7 +45,9 @@ namespace WypożyczalniaVideo
             
             if (client_data_datagrid() == 0)
             {
-                new ClientDeleteForm().Show();
+                delete_messagebox(client_firstname, client_lastname, client_pesel);
+                
+
             }
             else
             {
@@ -216,6 +220,8 @@ namespace WypożyczalniaVideo
                 client_lastname = selected_lastname;
                 client_pesel = selected_pesel;
                 client_nrtel = selected_nrtel;
+                client_combo = ClientSearchCB.Text;
+                client_id = Client_id(selected_pesel);
 
                 error = 0;
             }
@@ -228,7 +234,91 @@ namespace WypożyczalniaVideo
             return error;
         }
 
-       
+
+        /// <summary>
+        /// Methoda wywołująca procedurę SQL delete_client przyjmująca parametry @firstname, @lastname, pesel, @result jako OUTPUT.
+        /// </summary>
+        /// <param name="firstname">Imię kontrahenta</param>
+        /// <param name="lastname">Nazwisko kontrahenta</param>
+        /// <param name="pesel">Pesel kontrahenta</param>
+        /// <returns>int delete_result przyjmuję wartość 1 gdy udało się usunąć kontrahenta, 666 gdy nie</returns>
+        private static int delete_client(string firstname, string lastname, string pesel)
+        {
+
+
+            SqlConnection db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+
+            db_con.Open();
+
+
+            SqlCommand cmd_return = new SqlCommand("delete_client", db_con);
+            cmd_return.CommandType = CommandType.StoredProcedure;
+
+            cmd_return.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = firstname;
+            cmd_return.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = lastname;
+            cmd_return.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = pesel;
+            cmd_return.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            cmd_return.ExecuteNonQuery();
+
+            int delete_result = (int)cmd_return.Parameters["@result"].Value;
+
+            db_con.Close();
+
+            return delete_result;
+        }
+
+        /// <summary>
+        /// Methoda wywołująca MessageBox YESNO. Jeżeli wybrano YES wywołuje methode delete_client(firstname, lastname, pesel), wyświetla komunikat o usunięciu i zamyka okno.
+        /// Inaczej wyświetla komunikat o błędzie.
+        /// </summary>
+        /// <param name="firstname">Imię kontrahenta</param>
+        /// <param name="lastname">Nazwisko kontrahenta</param>
+        /// <param name="pesel">Pesel kontrahenta</param>
+        private void delete_messagebox(string firstname, string lastname, string pesel)
+        {
+            var mb_result = MessageBox.Show("Czy napewno chcesz usunąć " + client_firstname + " " + client_lastname + " ?", "Powiadomienie", MessageBoxButtons.YesNo);
+
+            if (mb_result == DialogResult.Yes)
+            {
+                delete_client(firstname, lastname, pesel);
+                MessageBox.Show("Usunięto kontrahenta!");
+                
+                
+            }
+            else
+                MessageBox.Show("lipa");
+
+
+        }
+
+        /// <summary>
+        /// Metoda wywołująca procedure SQL client_id 
+        /// </summary>
+        /// <param name="pesel">Pesel klienta</param>
+        /// <returns>int client_id - id klienta z bazy</returns>
+        private int Client_id(string pesel)
+        {
+            db_con.Open();
+
+            SqlCommand cmd_id_client = new SqlCommand("client_id", db_con);
+            cmd_id_client.CommandType = CommandType.StoredProcedure;
+
+            cmd_id_client.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = pesel;
+            cmd_id_client.Parameters.AddWithValue("@id_client", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            cmd_id_client.ExecuteNonQuery();
+
+            int client_id = (int)cmd_id_client.Parameters["@id_client"].Value;
+
+
+
+
+            db_con.Close();
+
+            return client_id;
+        }
+
     }
 
 }

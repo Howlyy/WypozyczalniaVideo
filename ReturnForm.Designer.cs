@@ -49,9 +49,9 @@ namespace WypożyczalniaVideo
             // SearchReturnDG
             // 
             this.SearchReturnDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SearchReturnDG.Location = new System.Drawing.Point(28, 12);
+            this.SearchReturnDG.Location = new System.Drawing.Point(12, 12);
             this.SearchReturnDG.Name = "SearchReturnDG";
-            this.SearchReturnDG.Size = new System.Drawing.Size(325, 426);
+            this.SearchReturnDG.Size = new System.Drawing.Size(341, 426);
             this.SearchReturnDG.TabIndex = 0;
             // 
             // SearchBorrowBTN

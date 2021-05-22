@@ -14,6 +14,11 @@ namespace WypożyczalniaVideo
             InitializeComponent();
 
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+
+            ClientModFirstTB.Text = ClientForm.client_firstname;
+            ClientModLastTB.Text = ClientForm.client_lastname;
+            ClientModPeselTB.Text = ClientForm.client_pesel;
+            ClientModTelTB.Text = ClientForm.client_nrtel;
         }
 
         /// <summary>

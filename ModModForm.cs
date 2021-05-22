@@ -11,10 +11,12 @@ namespace WypożyczalniaVideo
         SqlConnection db_con;
         public ModModForm()
         {
-            
-
             InitializeComponent();
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+
+            ModModTitleTB.Text = VideoModForm.video_title;
+            ModModCategoryCB.Text = VideoModForm.video_category;
+            ModModQuantityNUD.Value = VideoModForm.video_quantity;
         }
         /// <summary>
         /// Methoda użcia przycisku Modyfikuj. Po użyciu zostaje wywołana methoda modyfi_messagebox(string title, int quantity, string category)
@@ -26,8 +28,9 @@ namespace WypożyczalniaVideo
             string title = ModModTitleTB.Text;
             int quantity = (int)ModModQuantityNUD.Value;
             string category = ModModCategoryCB.Text;
+            int id = VideoModForm.video_id;
 
-            modyfi_messagebox(title, quantity, category); 
+            modyfi_messagebox(title, quantity, category, id); 
             
            
             
@@ -42,7 +45,7 @@ namespace WypożyczalniaVideo
         /// <param name="quantity">Ilość video</param>
         /// <param name="category">Kategoria video</param>
         /// <returns> int modyfi_result jest to zmienna do której zapisywany jest @result(zmienna OUTPUT z procedury SQL) </returns>
-       private int video_modyfi(string title, int quantity, string category)
+       private int video_modyfi(string title, int quantity, string category, int id)
         {
             db_con.Open();
 
@@ -53,6 +56,7 @@ namespace WypożyczalniaVideo
             cmd_modyfi.Parameters.AddWithValue("@title", SqlDbType.NVarChar).Value = title;
             cmd_modyfi.Parameters.AddWithValue("@quantity", SqlDbType.Int).Value = quantity;
             cmd_modyfi.Parameters.AddWithValue("@category", SqlDbType.NVarChar).Value = category;
+            cmd_modyfi.Parameters.AddWithValue("@id_video", SqlDbType.Int).Value = id;
             cmd_modyfi.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             cmd_modyfi.ExecuteNonQuery();
@@ -70,13 +74,13 @@ namespace WypożyczalniaVideo
         /// <param name="title">Tytul video</param>
         /// <param name="quantity">Ilość video</param>
         /// <param name="category">Kategoria video</param>
-        private void modyfi_messagebox(string title, int quantity, string category)
+        private void modyfi_messagebox(string title, int quantity, string category, int id)
         {
             var mb_result = MessageBox.Show("Czy napewno chcesz modyfikować " + ModModTitleTB.Text +" ?", "Powiadomienie", MessageBoxButtons.YesNo);
 
             if (mb_result == DialogResult.Yes)
             {
-                video_modyfi(title, quantity, category);
+                video_modyfi(title, quantity, category, id);
                 MessageBox.Show("Zmodyfikowano " + ModModTitleTB.Text +" !");
                 Hide();
             }

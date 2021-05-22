@@ -128,6 +128,7 @@ namespace WypożyczalniaVideo
             // 
             // NBBruttoTB
             // 
+            this.NBBruttoTB.Enabled = false;
             this.NBBruttoTB.Location = new System.Drawing.Point(98, 74);
             this.NBBruttoTB.Name = "NBBruttoTB";
             this.NBBruttoTB.Size = new System.Drawing.Size(128, 23);
@@ -190,6 +191,7 @@ namespace WypożyczalniaVideo
             // 
             // BNNettoTB
             // 
+            this.BNNettoTB.Enabled = false;
             this.BNNettoTB.Location = new System.Drawing.Point(98, 74);
             this.BNNettoTB.Name = "BNNettoTB";
             this.BNNettoTB.Size = new System.Drawing.Size(128, 23);
@@ -283,6 +285,7 @@ namespace WypożyczalniaVideo
             // 
             // NKEndPriceTB
             // 
+            this.NKEndPriceTB.Enabled = false;
             this.NKEndPriceTB.Location = new System.Drawing.Point(127, 115);
             this.NKEndPriceTB.Name = "NKEndPriceTB";
             this.NKEndPriceTB.Size = new System.Drawing.Size(128, 23);
@@ -399,6 +402,7 @@ namespace WypożyczalniaVideo
             // 
             // KOEndpriceTB
             // 
+            this.KOEndpriceTB.Enabled = false;
             this.KOEndpriceTB.Location = new System.Drawing.Point(201, 115);
             this.KOEndpriceTB.Name = "KOEndpriceTB";
             this.KOEndpriceTB.Size = new System.Drawing.Size(128, 23);

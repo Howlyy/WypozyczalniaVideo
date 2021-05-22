@@ -4,15 +4,19 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
+
 namespace WypożyczalniaVideo
 {
     public partial class ClientAddForm : Form
     {
         SqlConnection db_con;
+        
         public ClientAddForm()
         {
             InitializeComponent();
             db_con = new SqlConnection(ConfigurationManager.ConnectionStrings["Video"].ConnectionString);
+            
+           
         }
 
         /// <summary>
@@ -31,6 +35,7 @@ namespace WypożyczalniaVideo
             {
                 MessageBox.Show("Dodano nowego kontrahenta!");
                 Hide();
+                
             }
             else
                 MessageBox.Show("Taki kontrahent już istnieje!");
@@ -65,5 +70,7 @@ namespace WypożyczalniaVideo
             db_con.Close();
             return add_result;
         }
+
+
     }
 }
