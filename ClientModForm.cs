@@ -56,6 +56,7 @@ namespace WypożyczalniaVideo
             cmd_mod_client.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = lastname;
             cmd_mod_client.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = pesel;
             cmd_mod_client.Parameters.AddWithValue("@nrtel", SqlDbType.NVarChar).Value = nrtel;
+            cmd_mod_client.Parameters.AddWithValue("@id_client", SqlDbType.Int).Value = ClientForm.client_id;
             cmd_mod_client.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             cmd_mod_client.ExecuteNonQuery();
@@ -77,7 +78,7 @@ namespace WypożyczalniaVideo
         /// <param name="nrtel">Numer telefonu kontrahenta</param>
         private void mod_client_messagebox(string firstname, string lastname, string pesel, string nrtel)
         {
-            var mb_result = MessageBox.Show("Czy napewno chcesz usunąć " + ClientModFirstTB.Text + " " + ClientModLastTB.Text + " ?", "Powiadomienie", MessageBoxButtons.YesNo);
+            var mb_result = MessageBox.Show("Czy napewno chcesz zmodyfikować " + ClientModFirstTB.Text + " " + ClientModLastTB.Text + " ?", "Powiadomienie", MessageBoxButtons.YesNo);
 
             if (mb_result == DialogResult.Yes)
             {

@@ -221,7 +221,7 @@ namespace WypożyczalniaVideo
                 client_pesel = selected_pesel;
                 client_nrtel = selected_nrtel;
                 client_combo = ClientSearchCB.Text;
-                client_id = Client_id(selected_pesel);
+                client_id = Client_id(selected_pesel, selected_firstname, selected_lastname);
 
                 error = 0;
             }
@@ -297,14 +297,16 @@ namespace WypożyczalniaVideo
         /// </summary>
         /// <param name="pesel">Pesel klienta</param>
         /// <returns>int client_id - id klienta z bazy</returns>
-        private int Client_id(string pesel)
+        private int Client_id(string pesel, string firstname, string lastname)
         {
             db_con.Open();
 
             SqlCommand cmd_id_client = new SqlCommand("client_id", db_con);
             cmd_id_client.CommandType = CommandType.StoredProcedure;
 
-            cmd_id_client.Parameters.AddWithValue("@pesel", SqlDbType.NVarChar).Value = pesel;
+            cmd_id_client.Parameters.AddWithValue("@pesel", SqlDbType.Char).Value = pesel;
+            cmd_id_client.Parameters.AddWithValue("@firstname", SqlDbType.NVarChar).Value = firstname;
+            cmd_id_client.Parameters.AddWithValue("@lastname", SqlDbType.NVarChar).Value = lastname;
             cmd_id_client.Parameters.AddWithValue("@id_client", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             cmd_id_client.ExecuteNonQuery();
